@@ -2,53 +2,7 @@
 // Dace ToB - AR6200
 // --------------------------------------------
 // Dace's Epilogues
-IF
-    Global("StartEndBios","AR6200",1)
-    InParty("T#Dace")
-    Global("T#DaceBio","GLOBAL",0)
-    Global("PlayerChoseEssence","GLOBAL",1)
-    Global("T#DaceEpi_forever","GLOBAL",1)
-THEN
-  RESPONSE #100
-    SetGlobal("T#DaceBio","GLOBAL",1)
-    TextScreen("T#DACE1")
-END
-                                                                                                                
-IF
-    Global("StartEndBios","AR6200",1)
-    InParty("T#Dace")
-    Global("T#DaceBio","GLOBAL",0)
-    Global("PlayerChoseEssence","GLOBAL",1)
-    Global("T#DaceEpi_notforever","GLOBAL",1)
-THEN
-  RESPONSE #100
-    SetGlobal("T#DaceBio","GLOBAL",1)
-    TextScreen("T#DACE2")
-END
 
-IF
-    Global("StartEndBios","AR6200",1)
-    InParty("T#Dace")
-    Global("T#DaceBio","GLOBAL",0)
-    Global("PlayerChoseEssence","GLOBAL",1)
-    Global("T#DaceFriendshipActive","GLOBAL",1)
-THEN
-  RESPONSE #100
-    SetGlobal("T#DaceBio","GLOBAL",1)
-    TextScreen("T#DACE3")
-END
-
-IF
-    Global("StartEndBios","AR6200",1)
-    InParty("T#Dace")
-    Global("T#DaceBio","GLOBAL",0)
-    Global("PlayerChoseEssence","GLOBAL",0)
-    Global("T#DaceFriendshipActive","GLOBAL",1)
-THEN
-  RESPONSE #100
-    SetGlobal("T#DaceBio","GLOBAL",1)
-    TextScreen("T#DACE4")
-END
 
 IF
     Global("StartEndBios","AR6200",1)
@@ -60,6 +14,8 @@ THEN
   RESPONSE #100
     SetGlobal("T#DaceBio","GLOBAL",1)
     TextScreen("T#DACE5")
+    SmallWait(1)
+    Continue()
 END
 
 IF
@@ -72,6 +28,52 @@ THEN
   RESPONSE #100
     SetGlobal("T#DaceBio","GLOBAL",1)
     TextScreen("T#DACE6")
+    SmallWait(1)
+    Continue()
+END
+
+IF
+    Global("StartEndBios","AR6200",1)
+    InParty("T#Dace")
+    Global("T#DaceBio","GLOBAL",0)
+    Global("PlayerChoseEssence","GLOBAL",1)
+    Global("T#DaceEpi_forever","GLOBAL",1)
+    Global("T#DaceEpi_dump","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceBio","GLOBAL",1)
+    TextScreen("T#DACE1")
+    SmallWait(1)
+    Continue()
+END
+                                                                                                                
+IF
+    Global("StartEndBios","AR6200",1)
+    InParty("T#Dace")
+    Global("T#DaceBio","GLOBAL",0)
+    Global("PlayerChoseEssence","GLOBAL",1)
+    Global("T#DaceEpi_notforever","GLOBAL",1)
+    Global("T#DaceEpi_dump","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceBio","GLOBAL",1)
+    TextScreen("T#DACE2")
+    SmallWait(1)
+    Continue()
+END
+
+IF
+    Global("StartEndBios","AR6200",1)
+    InParty("T#Dace")
+    Global("T#DaceBio","GLOBAL",0)
+    Global("PlayerChoseEssence","GLOBAL",1)
+    Global("T#DaceFriendshipActive","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceBio","GLOBAL",1)
+    TextScreen("T#DACE3")
+    SmallWait(1)
+    Continue()
 END
 
 IF
@@ -79,11 +81,29 @@ IF
     InParty("T#Dace")
     Global("T#DaceBio","GLOBAL",0)
     Global("PlayerChoseEssence","GLOBAL",0)
+    Global("T#DaceFriendshipActive","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceBio","GLOBAL",1)
+    TextScreen("T#DACE4")
+    SmallWait(1)
+    Continue()
+END
+
+
+IF
+    Global("StartEndBios","AR6200",1)
+    InParty("T#Dace")
+    Global("T#DaceBio","GLOBAL",0)
+    Global("PlayerChoseEssence","GLOBAL",0)
     Global("T#DaceEpi_notforever","GLOBAL",1)
+    Global("T#DaceEpi_dump","GLOBAL",0)
 THEN
   RESPONSE #100
     SetGlobal("T#DaceBio","GLOBAL",1)
     TextScreen("T#DACE7")
+    SmallWait(1)
+    Continue()
 END
 
 IF
@@ -92,8 +112,11 @@ IF
     Global("T#DaceBio","GLOBAL",0)
     Global("PlayerChoseEssence","GLOBAL",0)
     Global("T#DaceEpi_forever","GLOBAL",1)
+    Global("T#DaceEpi_dump","GLOBAL",0)
 THEN
   RESPONSE #100
     SetGlobal("T#DaceBio","GLOBAL",1)
     TextScreen("T#DACE8")
+    SmallWait(1)
+    Continue()
 END

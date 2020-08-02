@@ -1,3 +1,4 @@
+/* there is no T#DAC25.cre
 IF
     True()
 THEN
@@ -7,5 +8,33 @@ THEN
     SetGlobal("T#DaceToBExists","GLOBAL",1)
     ActionOverride("T#Dace",MoveToPointNoInterrupt([830.800]))
     StartDialogueNoSet(Player1)
+    EndCutSceneMode()
+END
+*/
+
+
+IF
+    Global("T#Dace_WasInParty","GLOBAL",0)
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    CreateCreature("t#dace25",[810.605],5) //needs to be nearer to Illasera
+    SetGlobal("T#DaceToBExists","GLOBAL",1)
+    ActionOverride("T#Dace",MoveToPointNoInterrupt([830.800]))
+    ActionOverride("T#Dace",StartDialogueNoSet(Player1))
+    EndCutSceneMode()
+END
+
+IF
+    Global("T#Dace_WasInParty","GLOBAL",1)
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    MoveGlobal("AR4000","T#Dace",[810.605]) //needs to be nearer to Illasera
+    SetGlobal("T#DaceToBExists","GLOBAL",1)
+    ActionOverride("T#Dace",ChangeAIScript("t#dac25",OVERRIDE))
+    ActionOverride("T#Dace",SetDialog("t#dac25"))
+    ActionOverride("T#Dace",MoveToPointNoInterrupt([830.800]))
+    ActionOverride("T#Dace",StartDialogueNoSet(Player1))
     EndCutSceneMode()
 END

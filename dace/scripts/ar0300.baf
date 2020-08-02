@@ -2,11 +2,30 @@
 // Dace SoA - AR0300
 // --------------------------------------------
 // Spawn Dace
+
+/* was never in party before */
 IF
-    Global("chapter","GLOBAL",6)
+    !InPartyAllowDead("T#Dace")
+    !Dead("T#Dace")
+    Global("T#Dace_WasInParty","GLOBAL",0)
+    Global("chapter","GLOBAL",%bg2_chapter_6%)
     Global("T#DaceExistsDocks","GLOBAL",0)
 THEN
   RESPONSE #100
     SetGlobal("T#DaceExistsDocks","GLOBAL",1)
     CreateCreature("t#dace14",[1830.2761],8)
+END
+
+
+/* was in party before */
+IF
+    !InPartyAllowDead("T#Dace")
+    !Dead("T#Dace")
+    Global("T#Dace_WasInParty","GLOBAL",1)
+    Global("chapter","GLOBAL",%bg2_chapter_6%)
+    Global("T#DaceExistsDocks","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceExistsDocks","GLOBAL",1)
+    MoveGlobal("AR0300","T#Dace",[1830.2761])
 END

@@ -7,12 +7,24 @@ BEGIN T#DAC25
 //BEGINNING OF ILLASERA STUFF, WHICH IS GOING TO TAKE SOME MILDLY COMPLICATED-ISH CODING I DON'T QUITE UNDERSTAND YET, AND IS THUS JUST FLESHED OUT IN TEXT HERE
 //illasera--several possibilities
 
+/*
 EXTEND_BOTTOM ILLASERA 8
   IF ~!InParty("T#Dace") OR(2) !Global("T#DaceFriendshipActive","GLOBAL",1) Global("T#DaceJackass","GLOBAL",1) OR(2) !Global("T#DaceRomanceActive","GLOBAL",2) Global("T#DaceJackass","GLOBAL",1)~ DO ~ClearAllActions() StartCutSceneMode() StartCutScene("t#dtcut")~ EXIT
   IF ~InParty("T#Dace") OR(2) !Global("T#DaceFriendshipActive","GLOBAL",1) Global("T#DaceJackass","GLOBAL",1) OR(2) !Global("T#DaceRomanceActive","GLOBAL",2) Global("T#DaceJackass","GLOBAL",1)~ EXTERN T#DAC25J T#DaceToB1
   IF ~InParty("T#Dace") OR(2) Global("T#DaceFriendshipActive","GLOBAL",1) Global("T#DaceRomanceActive","GLOBAL",2)~ EXTERN T#DAC25J T#DaceToB2
 END
+*/
 
+// Not with group, not friend/romance
+EXTEND_BOTTOM ILLASERA 8
+/* Dace is not in party and not PC's friend / in committed romance */
+  IF ~!InPartyAllowDead("T#Dace") !Dead("T#Dace") Global("T#DaceJackass","GLOBAL",1)~ THEN DO ~ClearAllActions() StartCutSceneMode() StartCutScene("t#dtcut")~ EXIT
+/* Dace is in party but not PC's friend / in committed romance */
+  IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DaceJackass","GLOBAL",1)~ THEN EXTERN T#DAC25J T#DaceToB1
+/* Dace is in party and either PC's friend or in committed romance */
+  IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) 
+OR(2) Global("T#DaceFriendshipActive","GLOBAL",1) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN EXTERN T#DAC25J T#DaceToB2
+END
 
 APPEND T#DAC25
 
@@ -33,30 +45,50 @@ END
 
 IF ~~ T#DaceToBInt.2
   SAY @8
-  IF ~~ DO ~SetGlobal("IllaseraHostile","GLOBAL",1) Enemy() ActionOverride("ILLASERA",Enemy())~ EXIT
+IF ~~ THEN DO ~Enemy()~ EXTERN ILLASERA T#DaceToBInt
+END
+
+END //APPEND
+
+
+APPEND ILLASERA 
+IF ~~ T#DaceToBInt
+  SAY @59
+COPY_TRANS ILLASERA 8
 END
 
 END
+
+
 
 
 //If with group but didn't reach friend/rom level in SOA--upon meeting Illasera--she comes up and within her talk w/PC--
 CHAIN T#DAC25J T#DaceToB1
   @9
   == ILLASERA @10
-  == T#DAC25 @11
+  == T#DAC25J @11
 END
   ++ @5 EXTERN T#DAC25J T#DaceToBInt.2
   ++ @6 EXTERN T#DAC25J T#DaceToBInt.2
   ++ @7 EXTERN T#DAC25J T#DaceToBInt.2
 
 APPEND T#DAC25J
+/*
 IF ~~ T#DaceToBInt.2
   SAY @8
   IF ~~ DO ~SetGlobal("IllaseraHostile","GLOBAL",1) Enemy() ActionOverride("ILLASERA",Enemy())~ EXIT
 END
+*/
+
+IF ~~ T#DaceToBInt.2
+  SAY @8
+IF ~~ THEN DO ~Enemy()~ EXTERN ILLASERA T#DaceToBInt
+END
+
 END
 
 //if with at beginning of TOB and either friend or Romance, she speaks to Illasera
+/*
 CHAIN T#DAC25J T#DaceToB2
   @12
   == ILLASERA @13              
@@ -64,6 +96,15 @@ CHAIN T#DAC25J T#DaceToB2
   == ILLASERA @15
   DO ~SetGlobal("T#DaceToBIntroTalk","GLOBAL",1) SetGlobal("IllaseraHostile","GLOBAL",1) ActionOverride("ILLASERA",Enemy())~
 EXIT
+*/
+CHAIN T#DAC25J T#DaceToB2
+  @12
+  == ILLASERA @13              
+  == T#DAC25J @14
+  == ILLASERA @15
+END
+  IF ~~ THEN DO ~SetGlobal("T#DaceToBIntroTalk","GLOBAL",1)~ EXTERN ILLASERA T#DaceToBInt
+
 
 
 //directly after the battle and all of Ila's crew all sprite-dead
@@ -132,7 +173,7 @@ END
 
 IF ~~ T#DaceToBIntro.kickout
   SAY @51
-  IF ~~ DO ~LeaveParty() SetGlobal("T#DaceJoined","GLOBAL",0) EscapeArea()~ EXIT
+  IF ~~ DO ~SetGlobal("T#DaceJoined","GLOBAL",0) LeaveParty() EscapeArea()~ EXIT
 END
 
 END
@@ -207,12 +248,12 @@ END
 
 IF ~~ T#DaceToBJoin.8
   SAY @58
-  IF ~~ DO ~JoinParty() SetGlobal("T#DaceJoined","GLOBAL",1)~ EXIT
+  IF ~~ DO ~SetGlobal("T#DaceJoined","GLOBAL",1) JoinParty()~ EXIT
 END
 
 IF ~~ T#DaceToBJoin.kickout
   SAY @51
-  IF ~~ DO ~LeaveParty() SetGlobal("T#DaceJoined","GLOBAL",0) EscapeArea()~ EXIT
+  IF ~~ DO ~SetGlobal("T#DaceJoined","GLOBAL",0) LeaveParty() EscapeArea()~ EXIT
 END
 
 END

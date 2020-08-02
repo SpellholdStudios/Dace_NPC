@@ -11,7 +11,7 @@ BEGIN T#DAC25J
 
 //harlot in saradush
 INTERJECT SARPRO01 0 T#DHARLOT
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN
 @0
 EXIT
 
@@ -23,20 +23,20 @@ END
 
 CHAIN SARVOLO T#DaceVolo
   @2
-  == T#DAC25J @3
+  == T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN @3
 EXTERN SARVOLO 9
 
 
 //post gromnir melissan again, tells what you have to do
 INTERJECT_COPY_TRANS SARMEL01 53 T#DPOSTGROM
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
 @4
 END
 
 
 //oasis
 INTERJECT_COPY_TRANS AMTGEN01 1 T#DOASIS
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
 @5
 == AMTGEN01 @6
 END
@@ -44,21 +44,28 @@ END
 
 //dragon w/wardstone
 INTERJECT_COPY_TRANS BAZDRA03 1 T#DABDRAGON
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
 @7
 END
 
 
 //elminster
 INTERJECT_COPY_TRANS2 AMELM01 0 T#DELMIN
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
 @8
 END
 
 
 //Melissan obligatory trash-talk
+/*
 INTERJECT_COPY_TRANS FINMEL01 7 T#DMelEnd
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+@9
+== FINMEL01 @10
+END
+*/
+INTERJECT_COPY_TRANS FINMEL01 0 T#DMelEnd
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
 @9
 == FINMEL01 @10
 END
@@ -66,30 +73,30 @@ END
 
 // Godhood suggestions
 INTERJECT_COPY_TRANS3 FINSOL01 27 T#DaceFinSol
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN @11
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) !Global("T#DaceRomanceActive","GLOBAL",2)~ THEN @12
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN @11
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) !Global("T#DaceRomanceActive","GLOBAL",2)~ THEN @12
 END
 
 
 // Reaction to decision
 EXTEND_BOTTOM FINSOL01 29
-  IF ~InParty("T#Dace") Global("T#DacePCGod","GLOBAL",0) Global("T#DaceRomanceActive","GLOBAL",2)~ DO ~SetGlobal("T#DacePCGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCGodRom
-  IF ~InParty("T#Dace") Global("T#DacePCGod","GLOBAL",0) !Global("T#DaceRomanceActive","GLOBAL",2)~ DO ~SetGlobal("T#DacePCGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCGod
+  IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DacePCGod","GLOBAL",0) Global("T#DaceRomanceActive","GLOBAL",2)~ DO ~SetGlobal("T#DacePCGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCGodRom
+  IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DacePCGod","GLOBAL",0) !Global("T#DaceRomanceActive","GLOBAL",2)~ DO ~SetGlobal("T#DacePCGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCGod
 END
 
 EXTEND_BOTTOM FINSOL01 30
-  IF ~InParty("T#Dace") Global("T#DacePCGod","GLOBAL",0) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN DO ~SetGlobal("T#DacePCGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCGodRom
-  IF ~InParty("T#Dace") Global("T#DacePCGod","GLOBAL",0) !Global("T#DaceRomanceActive","GLOBAL",2)~ THEN DO ~SetGlobal("T#DacePCGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCGod
+  IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DacePCGod","GLOBAL",0) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN DO ~SetGlobal("T#DacePCGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCGodRom
+  IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DacePCGod","GLOBAL",0) !Global("T#DaceRomanceActive","GLOBAL",2)~ THEN DO ~SetGlobal("T#DacePCGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCGod
 END
 
 EXTEND_BOTTOM FINSOL01 31
-  IF ~InParty("T#Dace") Global("T#DacePCGod","GLOBAL",0) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN DO ~SetGlobal("T#DacePCGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCGodRom
-  IF ~InParty("T#Dace") Global("T#DacePCGod","GLOBAL",0) !Global("T#DaceRomanceActive","GLOBAL",2)~ THEN DO ~SetGlobal("T#DacePCGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCGod
+  IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DacePCGod","GLOBAL",0) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN DO ~SetGlobal("T#DacePCGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCGodRom
+  IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DacePCGod","GLOBAL",0) !Global("T#DaceRomanceActive","GLOBAL",2)~ THEN DO ~SetGlobal("T#DacePCGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCGod
 END
 
 EXTEND_BOTTOM FINSOL01 32
-  IF ~InParty("T#Dace") Global("T#DacePCNotGod","GLOBAL",0) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN DO ~SetGlobal("T#DacePCNotGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCNotGodRom
-  IF ~InParty("T#Dace") Global("T#DacePCNotGod","GLOBAL",0) !Global("T#DaceRomanceActive","GLOBAL",2)~ THEN DO ~SetGlobal("T#DacePCNotGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCNotGod
+  IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DacePCNotGod","GLOBAL",0) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN DO ~SetGlobal("T#DacePCNotGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCNotGodRom
+  IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DacePCNotGod","GLOBAL",0) !Global("T#DaceRomanceActive","GLOBAL",2)~ THEN DO ~SetGlobal("T#DacePCNotGod","GLOBAL",1)~ EXTERN T#DAC25J T#DacePCNotGod
 END
 
 
@@ -120,14 +127,14 @@ END
 
 // odren--taking on WK challenge
 INTERJECT_COPY_TRANS GORODR1 11 T#DWATCHERSToB
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) GlobalGT("Chapter","Global",%bg2_chapter_7%)~ THEN
 @17
 END
 
 
 // old priest--slippers
 INTERJECT_COPY_TRANS GORPRI1 2 T#DSLIPPERSToB
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) GlobalGT("Chapter","Global",%bg2_chapter_7%)~ THEN
 @18
 == GORPRI1 @19
 END
@@ -135,35 +142,35 @@ END
 
 // yakman
 INTERJECT_COPY_TRANS GORMAD1 1 T#DYAKMANToB
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) GlobalGT("Chapter","Global",%bg2_chapter_7%)~ THEN
 @20
 END
 
 
 // deck of many things
 INTERJECT_COPY_TRANS GORCAMB 17 T#DDECKToB
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) GlobalGT("Chapter","Global",%bg2_chapter_7%)~ THEN
 @21
 END
 
 
 // machine
 INTERJECT_COPY_TRANS GORCAR 8 T#DMACHINEToB
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) GlobalGT("Chapter","Global",%bg2_chapter_7%)~ THEN
 @22
 END
 
 
 // green “challenge” dragon--after seeing red sentient dragon
 INTERJECT_COPY_TRANS FSDRAGON 0 T#DWKDRAGONSToB
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) GlobalGT("Chapter","Global",%bg2_chapter_7%)~ THEN
 @23
 END
 
 
 // odren dies
 INTERJECT_COPY_TRANS GORODR1 65 T#DODRENToB
-== T#DAC25J IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DAC25J IF ~InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) GlobalGT("Chapter","Global",%bg2_chapter_7%)~ THEN
 @24
 END
 
@@ -174,7 +181,7 @@ END
 APPEND T#DAC25J
 
 // "Gift"
-IF ~RealGlobalTimerExpired("T#DaceToBGiftTalkTimer","GLOBAL") Global("T#DaceToBGiftTalk","GLOBAL",2)~ T#DTG_1
+IF ~Global("T#DaceToBGiftTalk","GLOBAL",2)~ T#DTG_1
   SAY @25
   ++ @26 + T#DTG_2
   ++ @27 + T#DTG_3
@@ -224,12 +231,13 @@ IF ~~ T#DTG_6
   @42
   =
   @43
-  IF ~~ DO ~IncrementGlobal("T#DaceToBGiftTalk","GLOBAL",1) DestroyItem("t#dhlcat") TakeItemReplace("t#dhlsin","t#dhlcat","T#Dace") EquipItem("t#dhlsin") GiveItemCreate("t#dacbt",Player1,0,0,0)~ EXIT
+  IF ~~ DO ~IncrementGlobal("T#DaceToBGiftTalk","GLOBAL",1) //DestroyItem("t#dhlcat")
+TakeItemReplace("t#dhlsin","t#dhlcat","T#Dace") EquipItem("t#dhlsin") GiveItemCreate("t#dacbt",Player1,0,0,0)~ EXIT
 END
 
 
 // Challenge 1
-IF ~RealGlobalTimerExpired("T#DaceToBChallengeTalkTimer","GLOBAL") Global("T#DaceToBCh1Talk","GLOBAL",2)~ T#DTC1_1
+IF ~Global("T#DaceToBCh1Talk","GLOBAL",2)~ T#DTC1_1
   SAY @44
   =
   @45
@@ -308,7 +316,7 @@ END
 
 
 // Challenge 2
-IF ~RealGlobalTimerExpired("T#DaceToBChallengeTalkTimer","GLOBAL") Global("T#DaceToBCh2Talk","GLOBAL",2)~ T#DTC2_1
+IF ~Global("T#DaceToBCh2Talk","GLOBAL",2)~ T#DTC2_1
   SAY @79
   ++ @80 DO ~IncrementGlobal("T#DaceToBCh2Talk","GLOBAL",1)~ + T#DTC2_2
   ++ @81 DO ~IncrementGlobal("T#DaceToBCh2Talk","GLOBAL",1)~ + T#DTC2_2
@@ -337,7 +345,7 @@ END
 
 
 // Challenge 3
-IF ~RealGlobalTimerExpired("T#DaceToBChallengeTalkTimer","GLOBAL") Global("T#DaceToBCh3Talk","GLOBAL",2)~ T#DTC3_1
+IF ~Global("T#DaceToBCh3Talk","GLOBAL",2)~ T#DTC3_1
 SAY @92
 ++ @93 DO ~IncrementGlobal("T#DaceToBCh3Talk","GLOBAL",1)~ + T#DTC3_2
 ++ @94 DO ~IncrementGlobal("T#DaceToBCh3Talk","GLOBAL",1)~ + T#DTC3_3
@@ -403,7 +411,7 @@ END
 
 
 // Challenge 4
-IF ~RealGlobalTimerExpired("T#DaceToBChallengeTalkTimer","GLOBAL") Global("T#DaceToBCh4Talk","GLOBAL",2)~ T#DTC4_1
+IF ~Global("T#DaceToBCh4Talk","GLOBAL",2)~ T#DTC4_1
   SAY @115
   ++ @116 DO ~IncrementGlobal("T#DaceToBCh4Talk","GLOBAL",1)~ + T#DTC4_2
   ++ @117 DO ~IncrementGlobal("T#DaceToBCh4Talk","GLOBAL",1)~ + T#DTC4_2
@@ -486,7 +494,7 @@ END
 
 
 // Challenge 5
-IF ~RealGlobalTimerExpired("T#DaceToBChallengeTalkTimer","GLOBAL") Global("T#DaceToBCh5Talk","GLOBAL",2)~ T#DTC5_1
+IF ~Global("T#DaceToBCh5Talk","GLOBAL",2)~ T#DTC5_1
   SAY @158
   ++ @159 DO ~IncrementGlobal("T#DaceToBCh5Talk","GLOBAL",1)~ + T#DTC5_2
   ++ @160 DO ~IncrementGlobal("T#DaceToBCh5Talk","GLOBAL",1)~ + T#DTC5_2
@@ -715,7 +723,7 @@ END
 
 
 // "Apology"--For friendship AND romance
-IF ~RealGlobalTimerExpired("T#DaceToBApologyTalkTimer","GLOBAL") Global("T#DaceToBApologyTalk","GLOBAL",2)~ T#DTA_1
+IF ~Global("T#DaceToBApologyTalk","GLOBAL",2)~ T#DTA_1
   SAY @235
   =
   @236
@@ -748,7 +756,7 @@ END
 
 
 // "Bacon Crisis"--FRIENDSHIP only
-IF ~RealGlobalTimerExpired("T#DaceToBBaconTalkTimer","GLOBAL") Global("T#DaceToBBaconTalk","GLOBAL",2)~ T#DTB_1
+IF ~Global("T#DaceToBBaconTalk","GLOBAL",2)~ T#DTB_1
   SAY @247
   ++ @248 DO ~IncrementGlobal("T#DaceToBBaconTalk","GLOBAL",1)~ + T#DTB_2
   ++ @249 DO ~IncrementGlobal("T#DaceToBBaconTalk","GLOBAL",1)~ + T#DTB_2
@@ -959,7 +967,7 @@ END
 //WRAITH ENCOUNTER--Dace gets Ila
 
 EXTEND_BOTTOM HGWRA01 18
-  IF ~Global("T#DaceRomanceActive","GLOBAL",2) InParty("T#Dace")~ DO ~SetGlobal("T#DaceWraith","GLOBAL",1)~ EXTERN HGWRA01 T#Dacewraith
+  IF ~Global("T#DaceRomanceActive","GLOBAL",2) InParty("T#Dace") InMyArea("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ DO ~SetGlobal("T#DaceWraith","GLOBAL",1)~ EXTERN HGWRA01 T#Dacewraith
 END
 
 EXTEND_BOTTOM HGWRA01 24

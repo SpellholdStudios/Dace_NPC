@@ -2,9 +2,14 @@
 // Dace SoA - AR2000
 // --------------------------------------------
 // Spawn Dace
+
+/* was never in party before */
 IF
-    GlobalGT("chapter","GLOBAL",2)
-    GlobalLT("chapter","GLOBAL",6)
+    !InPartyAllowDead("T#Dace")
+    !Dead("T#Dace")
+    Global("T#Dace_WasInParty","GLOBAL",0)
+    GlobalGT("chapter","GLOBAL",%bg2_chapter_2%)
+    GlobalLT("chapter","GLOBAL",%bg2_chapter_6%)
     Global("T#DaceExistsTrademeet","GLOBAL",0)
 THEN
   RESPONSE #100
@@ -12,11 +17,26 @@ THEN
     CreateCreature("t#dace12",[3282.2191],5)
 END
 
+/* was in party before */
 IF
-     Global("T#DaceExistsTrademeet","GLOBAL",1)
-     Global("geniesgone","GLOBAL",1)
-     !Dead("T#Dace")
+    !InPartyAllowDead("T#Dace")
+    !Dead("T#Dace")
+    Global("T#Dace_WasInParty","GLOBAL",1)
+    GlobalGT("chapter","GLOBAL",%bg2_chapter_2%)
+    GlobalLT("chapter","GLOBAL",%bg2_chapter_6%)
+    Global("T#DaceExistsTrademeet","GLOBAL",0)
 THEN
   RESPONSE #100
-     ActionOverride("T#Dace",DestroySelf())
+    SetGlobal("T#DaceExistsTrademeet","GLOBAL",1)
+    MoveGlobal("AR2000","T#Dace",[3282.2191])
+END
+
+IF
+     !InPartyAllowDead("T#Dace")
+     Exists("T#Dace")
+     Global("T#DaceExistsTrademeet","GLOBAL",1)
+     Global("geniesgone","GLOBAL",1)
+THEN
+  RESPONSE #100
+        ActionOverride("T#Dace",DestroySelf())
 END

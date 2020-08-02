@@ -13,12 +13,12 @@ END
 
 IF ~~ T#DP1_2
   SAY @2004
-  IF ~~ DO ~LeaveParty() EscapeArea() SetGlobal("T#DaceJoined","GLOBAL",0)~ EXIT
+  IF ~~ DO ~SetGlobal("T#DaceJoined","GLOBAL",0) LeaveParty() EscapeArea()~ EXIT
 END
 
 IF ~~ T#DP1_3
   SAY @2005
-  IF ~~ EXIT
+  IF ~~ DO ~JoinParty()~ EXIT
 END
 
 
@@ -32,12 +32,12 @@ END
 
 IF ~~ T#DP3_2
   SAY @2010
-  IF ~~ DO ~LeaveParty() EscapeArea() SetGlobal("T#DaceJoined","GLOBAL",0) SetGlobal("T#DaceRomanceActive","GLOBAL",3)~ EXIT
+  IF ~~ DO ~SetGlobal("T#DaceJoined","GLOBAL",0) SetGlobal("T#DaceRomanceActive","GLOBAL",3) LeaveParty() EscapeArea()~ EXIT
 END
 
 IF ~~ T#DP3_3
   SAY @2011
-  IF ~~ EXIT
+  IF ~~ DO ~JoinParty()~ EXIT
 END
 
 
@@ -50,12 +50,12 @@ END
 
 IF ~~ T#DP2_2
   SAY @2015
-  IF ~~ DO ~LeaveParty() EscapeArea() SetGlobal("T#DaceJoined","GLOBAL",0)~ EXIT
+  IF ~~ DO ~SetGlobal("T#DaceJoined","GLOBAL",0) LeaveParty() EscapeArea()~ EXIT
 END
 
 IF ~~ T#DP2_3
   SAY @2016
-  IF ~~ EXIT
+  IF ~~ DO ~JoinParty()~ EXIT
 END
 
 
@@ -114,12 +114,13 @@ END
 
 IF ~~ T#DaceReturn7
   SAY @2034
-  IF ~~ DO ~JoinParty() SetGlobal("T#DaceJoined","GLOBAL",1) EraseJournalEntry(32084)
+  IF ~~ DO ~SetGlobal("T#DaceJoined","GLOBAL",1) EraseJournalEntry(32084)
 EraseJournalEntry(32085)
 EraseJournalEntry(16351)
 EraseJournalEntry(@1031)
 EraseJournalEntry(15710)
 EraseJournalEntry(6589)
 EraseJournalEntry(@1038)
-IncrementGlobal("T#DaceVampire","GLOBAL",1)~ SOLVED_JOURNAL @2035 EXIT
+IncrementGlobal("T#DaceVampire","GLOBAL",1)
+JoinParty()~ SOLVED_JOURNAL @2035 EXIT
 END

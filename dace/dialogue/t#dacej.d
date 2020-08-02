@@ -9,7 +9,7 @@ BEGIN T#DACEJ
 
 // Circus--Get riddle right--(..rewards those with a quick and agile mind)(Think this is Genie1.dlg)
 INTERJECT_COPY_TRANS GENIE1 7 T#DRIDDLE
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @0
 == GENIE1 @1
 END
@@ -17,13 +17,13 @@ END
 
 // After gaelan speaking to bayle, inserted somewhere into talking w/his boy(BRUS2)
 INTERJECT_COPY_TRANS BRUS2 1 T#DBAYLE
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @2
 == BRUS2 @3
 END
 
 INTERJECT_COPY_TRANS BRUS2 3 T#DBAYLE2
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @2
 == BRUS2 @4
 END
@@ -31,97 +31,98 @@ END
 
 // copper coronet--amalas--picks fight(RUFFIAN.DLG)
 INTERJECT_COPY_TRANS RUFPAL2 5 T#DAMALAS
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @5
 END
 
 
 // coronet--agree to help Nalia(Amazingly enough, NALIA.DLG.  Go figure. ;) )
 INTERJECT_COPY_TRANS NALIA 50 T#DHELPNAL
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @6
 END
 
 
 // coronet--madame nin(MADAM.DLG)
 INTERJECT_COPY_TRANS MADAM 4 T#DNIN
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @7
 END
 
 INTERJECT_COPY_TRANS MADAM 5 T#DNIN2
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @7
 END
 
 INTERJECT_COPY_TRANS MADAM 6 T#DNIN3
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @7
 END
 
 
 // d'arnise hold--aunt(DELCIA.DLG.  As an aside, I love it!)
 INTERJECT_COPY_TRANS DELCIA 2 T#DAUNT
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @8
 END
 
 
 // windspear--garren's child--say you'll help(GARKID01 and GARKID02.  Hrms.  Or maybe you were looking for Garren himself, not the kid?  Out of it.  Garren is GARREN.DLG.  Ooh, ahh, that was a hard one.  *laughs at herself*)
 INTERJECT_COPY_TRANS GARREN 35 T#DGARREN
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @9
 END
 
 INTERJECT_COPY_TRANS GARREN 36 T#DGARREN2
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @9
 END
 
 
 // firkraag(FIRKRA02)
 INTERJECT_COPY_TRANS FIRKRA02 0 T#DFIRK
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @10
 END
 
 
 // lady elgea ransom/silver pants thing--can let her go or collect the ransom(ELGEA.DLG)
 INTERJECT ELGEA 0 T#DELGEA
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @11
 COPY_TRANS ELGEA 0
 
 
 // nether scroll--if Edwin talks to lich and fight starts(NEVAZIAH.DLG)
 INTERJECT_COPY_TRANS NEVAZIAH 16 T#DNETHER
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @12
 == EDWINJ @13
+== NEVAZIAH @2037
 END
 
 
 // Bridge Aegisfield—talks to party about murders(INSPECT.DLG)
 INTERJECT_COPY_TRANS INSPECT 13 T#DAEGIS
-== T#DACEJ   IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN 
+== T#DACEJ   IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN 
     @14
-== INSPECT
+== INSPECT 
     @15
-== T#DACEJ
+== T#DACEJ 
     @16
 END
 
 
 // govt. dist--viconia--everyone else chimes in about rescuing her or not(*laugh*  Priceless.  VICFAN1)
 INTERJECT_COPY_TRANS VICG1 4 T#DVICSAV
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @17
 END
 
 
 // umar--kids ask for swords/ale(UHKID01)
 INTERJECT_COPY_TRANS UHKID01 3 T#DKIDS
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @18
 == UHKID01 @19
 END
@@ -129,43 +130,40 @@ END
 
 // chicken thing during wrangling w/ farmers to buy chicken, etc.(GEMFAR02.DLG)
 INTERJECT_COPY_TRANS GEMFAR02 6 T#DCHIX
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @20
 END
 
 
 //  Temple--illithium quest-- only works in illithium  need to be mult. copies of this interject for diff. temples?  should only fire once, though(SCTELWYN/DLG for Helm's temple, SCYARRYL for Talos and SCSAIN.DLG for Lathander.)
-INTERJECT_COPY_TRANS SCTELWYN 5 T#DaceJTemple1
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DaceJTemple","GLOBAL",0)~ THEN
+INTERJECT_COPY_TRANS SCTELWYN 5 T#DaceJTemple
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @21
-DO ~IncrementGlobal("T#DaceJTemple","GLOBAL",1)~
 END
 
 
-INTERJECT_COPY_TRANS SCYARRYL 6 T#DaceJTemple2
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DaceJTemple","GLOBAL",0)~ THEN
+INTERJECT_COPY_TRANS SCYARRYL 6 T#DaceJTemple
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @21
-DO ~IncrementGlobal("T#DaceJTemple","GLOBAL",1)~
 END
 
 
-INTERJECT_COPY_TRANS SCSAIN 6 T#DaceJTemple3
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DaceJTemple","GLOBAL",0)~ THEN
+INTERJECT_COPY_TRANS SCSAIN 6 T#DaceJTemple
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @21
-DO ~IncrementGlobal("T#DaceJTemple","GLOBAL",1)~
 END
 
 
 // talking to diseased leader about their dead god in underground city(RIFTM01)
 INTERJECT_COPY_TRANS RIFTM01 17 T#DBIZZARE
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @22
 END
 
 
 // docks--working for mae'var edwin--getting maevar documents, he says blah blah  " matter well in hand"
 INTERJECT_COPY_TRANS EDWINJ 1 T#DEDDIEDOC
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @23
 == EDWINJ @24
 == T#DACEJ @25
@@ -175,14 +173,14 @@ END
 
 // kangaxx(HLKANG.DLG)
 INTERJECT_COPY_TRANS HLKANG 0 T#DKANG
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @27
 END
 
 
 // druid grove--encounter outside Faldorn's cave(Think the right dialogue file is CEDRUID2.DLG, though this might not be the right one.)
 INTERJECT_COPY_TRANS CEDRUID2 5 T#DNUTTY
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @28
 == CEDRUID2 @29
 END
@@ -190,7 +188,7 @@ END
 
 // Take trademeet quest—(Think you mean accepting the quest from the guy in the gates area?  If so, MESSEN.DLG)
 INTERJECT_COPY_TRANS MESSEN 10 T#DTRADEQUEST
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @30
 == MESSEN @31
 END
@@ -198,14 +196,14 @@ END
 
 // Trademeet—meet militia captain, tells you to go to see the mayor first—(TRGRD03.DLG)
 INTERJECT_COPY_TRANS TRGRD03 8 T#DLUNCH
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @32
 END
 
 
 // Viekang in trademeet  tavern—(VIEKANG.DLG.  Cute. ;) )
 INTERJECT_COPY_TRANS VIEKANG 7 T#DVIEK
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @33
 == VIEKANG @34
 END
@@ -213,14 +211,14 @@ END
 
 // working for linvail--bodhi rumble--obligatory trash-talk, talks to you for forrrevah about Irenicus, etc.(BODHI2.DLG)
 INTERJECT_COPY_TRANS BODHI2 15 T#DBODHIYAP
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @35
 END
 
 
 // working for bodhi--kill gaelan for key/kill linvail, obligatory trash-talk(Not sure which dialogue you want to interject into, or which area.  Bodhi's is BODHI.DLG when you're working for her.  Linvail is ARAN02, all one state of it.)
 INTERJECT_COPY_TRANS ARAN02 0 T#DLINVAILYAP
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @36
 == ARAN02 @37
 END
@@ -228,7 +226,7 @@ END
 
 // spellhold--Yosh betrays--(YOSHJ.DLG.  He has some very interesting lines in his YOSHIMO.DLG that I've never before seen.  Amusing.  Getting captured some how by a nymph?  *laugh*)
 INTERJECT_COPY_TRANS YOSHJ 113 T#DYOSH
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @38
 END
 
@@ -236,7 +234,7 @@ END
 
 // bodhi rumble at end of maze/trash talk before slayer change(PPBODHI4.DLG)
 INTERJECT_COPY_TRANS PPBODHI4 20 T#DBodh2
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @39
 == PPBODHI4 @40
 END
@@ -244,7 +242,7 @@ END
 
 // Slayer interjections
 INTERJECT Player1 3 T#DaceJSlayerDizzy
-  == T#DACEJ IF ~InParty("T#Dace") !Global("AerieRomanceActive","GLOBAL",2) !Global("AnomenRomanceActive","GLOBAL",2) !Global("JaheiraRomanceActive","GLOBAL",2) !Global("ViconiaRomanceActive","GLOBAL",2) OR(2) Global("T#DaceRomanceActive","GLOBAL",1) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN
+  == T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace") !Global("AerieRomanceActive","GLOBAL",2) !Global("AnomenRomanceActive","GLOBAL",2) !Global("JaheiraRomanceActive","GLOBAL",2) !Global("ViconiaRomanceActive","GLOBAL",2) OR(2) Global("T#DaceRomanceActive","GLOBAL",1) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN
   @41
 END
   ++ @42 EXTERN T#DACEJ T#DDIZZY_2
@@ -260,13 +258,13 @@ END
 END
 
 INTERJECT_COPY_TRANS Player1 5 T#DaceJSlayerNoRom
-  == T#DACEJ IF ~InParty("T#Dace")~ THEN
+  == T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
   @47
 END
 
 
 INTERJECT Player1 7 T#DaceJSlayerWake
-  == T#DACEJ IF ~InParty("T#Dace") OR(2) Global("T#DaceRomanceActive","GLOBAL",1) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN
+  == T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace") OR(2) Global("T#DaceRomanceActive","GLOBAL",1) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN
   @48
 END
   ++ @49 DO ~SetGlobal("EndangerLovedOne","GLOBAL",221) ActionOverride(Player1,ReallyForceSpell(Myself,SLAYER_CHANGE))~ EXIT
@@ -280,7 +278,7 @@ END
 
 
 INTERJECT Player1 10 T#DaceJEndanger
-  == T#DACEJ IF ~InParty("T#Dace") Global("EndangerLovedOne","GLOBAL",221)~ THEN
+  == T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace") Global("EndangerLovedOne","GLOBAL",221)~ THEN
   @52
 END
   ++ @53 EXTERN T#DACEJ T#DaceJEndanger1
@@ -305,14 +303,14 @@ END
 
 // steal pirate horn--pirate lord's girlfriend in bed w/some guy(PPGIRL.DLG)
 INTERJECT_COPY_TRANS PPLOVE 9 T#DPIRATEGIRL
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @61
 END
 
 
 // steal ship for saemon--getting ready to set sail(PPSAEM3.DLG)
 INTERJECT_COPY_TRANS PPSAEM3 23 T#DSHIP2
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @62
 == PPSAEM3 @63
 END
@@ -320,69 +318,69 @@ END
 
 // ship capsizes talk to king/priestess--right before they cast the translation spell--(SAHPRI1.DLG)
 INTERJECT_COPY_TRANS SAHPR1 1 T#DSHIP3
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @64
 END
 
 
 // deep gnomes, talk to leader, kill thing to get gem(UDSVIR03.DLG)
 INTERJECT UDSVIR03 12 T#DGNOME
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @65
 COPY_TRANS UDSVIR03 12
 
 
 // talking to adalon(UDSILVER.DLG.  Oh Dace.. *chuckle*)
 INTERJECT_COPY_TRANS UDSILVER 14 T#DADALON
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @66
 END
 
 
 // vithal--imprisoned mage...obviously she can't say this if she has already been silenced by Adalon...I can't remember what comes first...?(UDVITH)
 INTERJECT_COPY_TRANS UDVITH 0 T#DVITHAL
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @67
 END
 
 
 /* //entering ust natha, after the little display with the drow/slave/mother
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 ~Eeesh.  Note to self: Keep mouth shut, act like a good little Drow.  Uh, bad little Drow?  Anyway, let's get this over with and get outta here, Ducky.~
 END  */
 
 
 //conversation with MATRON ARDULACE, tells you to get the blood of the noble races
 I_C_T UDARDUL 10 T#DARDUL
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @68
 END
 
 
 /* //Talk to the Aboleth, the creature in the tank, and he tells you to get him Qilue's brain
 I_C_T DAABOL
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 ~Why am I suddenly hungry for fried eel?~
 END */
 
 
 // exit to underdark--getting grilled by Elban or whatever the devil his name is.  Elhan?(SUELHAN)
 INTERJECT_COPY_TRANS C6WARSA2 3 T#DPRANCI
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @69
 END
 
 
 // drizzt
 INTERJECT_COPY_TRANS C6DRIZZ1 39 T#DDRIZZT
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @70
 END
 
 
 // Suldaness--demin talks, explains Irenicus(SUDEMIN.DLG)
 INTERJECT SUDEMIN 16 T#DDEMIN
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @71
 =
 @72
@@ -391,7 +389,7 @@ COPY_TRANS SUDEMIN 16
 
 // dragon w/ goblet--(DRAGBLAC.DLG)
 INTERJECT_COPY_TRANS DRAGBLAC 0 T#DGOBLET
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @73
 END
 
@@ -482,14 +480,14 @@ END
 
 // In Hell
 I_C_T PLAYER1 25 T#DaceJ_Hell
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) Global("T#DaceRomanceActive","GLOBAL",2)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)  See("T#Dace") Global("T#DaceRomanceActive","GLOBAL",2)~ THEN
 @93
 =
 @94
 END
 
 I_C_T PLAYER1 25 T#DaceJ_Hell2
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) !Global("T#DaceRomanceActive","GLOBAL",2)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)  See("T#Dace") !Global("T#DaceRomanceActive","GLOBAL",2)~ THEN
 @95
 =
 @96
@@ -498,36 +496,36 @@ END
 
 // final iren battle--obligatory trash-talk(HELLJON.DLG)
 INTERJECT_COPY_TRANS HELLJON 7 T#DREN1
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @97
 END
 
 INTERJECT_COPY_TRANS HELLJON 8 T#DREN2
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @97
 END
 
 INTERJECT_COPY_TRANS HELLJON 9 T#DREN3
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @97
 END
 
 INTERJECT_COPY_TRANS HELLJON 10 T#DREN4
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ THEN
 @97
 END
 
 
 // odren--taking on WK challenge
 INTERJECT_COPY_TRANS GORODR1 11 T#DWATCHERS
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)  See("T#Dace") GlobalLT("Chapter","Global",%bg2_chapter_8%)~ THEN
 @98
 END
 
 
 // old priest--slippers
 INTERJECT_COPY_TRANS GORPRI1 2 T#DSLIPPERS
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)  See("T#Dace") GlobalLT("Chapter","Global",%bg2_chapter_8%)~ THEN
 @99
 == GORPRI1 @100
 END
@@ -535,35 +533,35 @@ END
 
 // yakman
 INTERJECT_COPY_TRANS GORMAD1 1 T#DYAKMAN
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)  See("T#Dace") GlobalLT("Chapter","Global",%bg2_chapter_8%)~ THEN
 @101
 END
 
 
 // deck of many things
 INTERJECT_COPY_TRANS GORCAMB 17 T#DDECK
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)  See("T#Dace") GlobalLT("Chapter","Global",%bg2_chapter_8%)~ THEN
 @102
 END
 
 
 // machine
 INTERJECT_COPY_TRANS GORCAR 8 T#DMACHINE
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)  See("T#Dace") GlobalLT("Chapter","Global",%bg2_chapter_8%)~ THEN
 @103
 END
 
 
 // green “challenge” dragon--after seeing red sentient dragon
 INTERJECT_COPY_TRANS FSDRAGON 0 T#DWKDRAGONS
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)  See("T#Dace") GlobalLT("Chapter","Global",%bg2_chapter_8%)~ THEN
 @104
 END
 
 
 // odren dies
 INTERJECT_COPY_TRANS GORODR1 65 T#DODREN
-== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)~ THEN
+== T#DACEJ IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID)  See("T#Dace") GlobalLT("Chapter","Global",%bg2_chapter_8%)~ THEN
 @105
 END
 
@@ -575,7 +573,7 @@ END
 APPEND T#DACEJ
 
 // 1.
-IF ~RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL") Global("T#DaceSussTalks","GLOBAL",1)~ T#DS1_1
+IF ~Global("T#DaceSussTalks","GLOBAL",1)~ T#DS1_1
   SAY @106
   ++ @107 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS1_2
   ++ @108 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS1_3
@@ -619,7 +617,7 @@ END
        
 
 // 2.
-IF ~RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL") Global("T#DaceSussTalks","GLOBAL",3)~ T#DS2_1
+IF ~Global("T#DaceSussTalks","GLOBAL",3)~ T#DS2_1
   SAY @127
   ++ @128 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS2_2
   ++ @129 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS2_2
@@ -649,7 +647,7 @@ END
 
 
 // 3.
-IF ~RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL") Global("T#DaceSussTalks","GLOBAL",5)~ T#DS3_1
+IF ~Global("T#DaceSussTalks","GLOBAL",5)~ T#DS3_1
   SAY @142
   ++ @143 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS3_2
   ++ @144 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS3_2
@@ -711,7 +709,7 @@ END
 
 
 // 4.
-IF ~RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL") Global("T#DaceSussTalks","GLOBAL",7)~ T#DS4_1
+IF ~Global("T#DaceSussTalks","GLOBAL",7)~ T#DS4_1
   SAY @176
   ++ @177 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DSjackass
   ++ @178 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS4_2
@@ -748,7 +746,7 @@ END
 
 
 // 5.
-IF ~RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL") Global("T#DaceSussTalks","GLOBAL",9)~ T#DS5_1
+IF ~Global("T#DaceSussTalks","GLOBAL",9)~ T#DS5_1
   SAY @189
   ++ @190 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS5_2
   ++ @191 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS5_3
@@ -768,7 +766,7 @@ END
 
 
 // 6.
-IF ~RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL") Global("T#DaceSussTalks","GLOBAL",11)~ T#DS6_1
+IF ~Global("T#DaceSussTalks","GLOBAL",11)~ T#DS6_1
   SAY @196
   ++ @197 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS6_2
   ++ @198 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS6_2
@@ -815,7 +813,7 @@ IF ~~ T#DS6_6
 END
 
 // 7.
-IF ~RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL") Global("T#DaceSussTalks","GLOBAL",13)~ T#DS7_1
+IF ~Global("T#DaceSussTalks","GLOBAL",13)~ T#DS7_1
   SAY @217
   ++ @218 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS7_2
   ++ @219 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS7_2
@@ -838,7 +836,7 @@ END
 
 IF ~~ T#DS7_3
   SAY @232
-  IF ~~ DO ~SetGlobal("T#DaceJackass","GLOBAL",3)~ EXIT
+  IF ~~ DO ~SetGlobal("T#DaceJackass","GLOBAL",1)~ EXIT
 END
 
 IF ~~ T#DS7_7
@@ -868,7 +866,7 @@ END
 
 
 // 8.
-IF ~RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL") Global("T#DaceSussTalks","GLOBAL",15)~ T#DS8_1
+IF ~Global("T#DaceSussTalks","GLOBAL",15)~ T#DS8_1
   SAY @243
   ++ @244 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS8_2
   ++ @245 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS8_2
@@ -929,7 +927,7 @@ END
 
 
 // 9.
-IF ~RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL") Global("T#DaceSussTalks","GLOBAL",17)~ T#DS9_1
+IF ~Global("T#DaceSussTalks","GLOBAL",17)~ T#DS9_1
   SAY @271
   ++ @272 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS9_3
   ++ @273 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS9_2
@@ -994,7 +992,7 @@ IF ~~ T#DS9_7
 END
 
 // 10.
-IF ~RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL") Global("T#DaceSussTalks","GLOBAL",19)~ T#DS10_1
+IF ~Global("T#DaceSussTalks","GLOBAL",19)~ T#DS10_1
   SAY @301
   ++ @302 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS10_2
   ++ @303 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS10_2
@@ -1036,7 +1034,7 @@ IF ~~ T#DS10_6
 END
 
 // 11.
-IF ~RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL") Global("T#DaceSussTalks","GLOBAL",21)~ T#DS13_1
+IF ~Global("T#DaceSussTalks","GLOBAL",21)~ T#DS13_1
   SAY @320
   ++ @321 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS13_2
   ++ @322 DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS13_2 
@@ -1072,10 +1070,10 @@ END
 
 
 // Suss Talk 12 "Just Ducky"
-IF ~RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL") Global("T#DaceSussTalks","GLOBAL",23)~ T#DS12
+IF ~Global("T#DaceSussTalks","GLOBAL",23)~ T#DS12
   SAY @335
-  IF ~OR(2) !InParty("Minsc") StateCheck("Minsc",CD_STATE_NOTVALID)~ DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ EXIT
-  IF ~InParty("Minsc") !StateCheck("Minsc",CD_STATE_NOTVALID)~ EXTERN MINSCJ T#DS12_minsc
+  IF ~OR(3) !InParty("Minsc") StateCheck("Minsc",CD_STATE_NOTVALID) !See("Minsc")~ DO ~RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ EXIT
+  IF ~InParty("Minsc") !StateCheck("Minsc",CD_STATE_NOTVALID) See("Minsc")~ EXTERN MINSCJ T#DS12_minsc
 END
 
 END
@@ -1092,7 +1090,7 @@ EXIT
 APPEND T#DACEJ
 
 // 13.
-IF ~RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL") Global("T#DaceSussTalks","GLOBAL",25)~ T#DS14_1
+IF ~Global("T#DaceSussTalks","GLOBAL",25)~ T#DS14_1
   SAY @339
   ++ @340 DO ~IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS14_2
   ++ @341 DO ~IncrementGlobal("T#DaceSussTalks","GLOBAL",1)~ + T#DS14_2
@@ -1143,7 +1141,7 @@ END
 
 
 //SOA INT 1
-IF ~RealGlobalTimerExpired("T#DaceIntTalksTimer","GLOBAL") Global("T#DaceIntTalks","GLOBAL",1)~ T#DI1_1
+IF ~Global("T#DaceIntTalks","GLOBAL",1)~ T#DI1_1
   SAY @360
   ++ @361 DO ~RealSetGlobalTimer("T#DaceIntTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceIntTalks","GLOBAL",1)~ + T#DI1_2
   ++ @362 DO ~RealSetGlobalTimer("T#DaceIntTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceIntTalks","GLOBAL",1)~ + T#DI1_2
@@ -1202,7 +1200,7 @@ END
 
 
 //SOA INT 2
-IF ~RealGlobalTimerExpired("T#DaceIntTalksTimer","GLOBAL") Global("T#DaceIntTalks","GLOBAL",3)~ T#DI2_1
+IF ~Global("T#DaceIntTalks","GLOBAL",3)~ T#DI2_1
   SAY @385 
   ++ @386 DO ~RealSetGlobalTimer("T#DaceIntTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceIntTalks","GLOBAL",1)~ + T#DI2_2
   ++ @387 DO ~RealSetGlobalTimer("T#DaceIntTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceIntTalks","GLOBAL",1)~ + T#DI2_2
@@ -1291,7 +1289,7 @@ END
 
 
 //SOA INT 3
-IF ~RealGlobalTimerExpired("T#DaceIntTalksTimer","GLOBAL") Global("T#DaceIntTalks","GLOBAL",5)~ T#DI7_1
+IF ~Global("T#DaceIntTalks","GLOBAL",5)~ T#DI7_1
   SAY @425
   ++ @426 DO ~RealSetGlobalTimer("T#DaceIntTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceIntTalks","GLOBAL",1)~ + T#DI7_2
   ++ @427 DO ~RealSetGlobalTimer("T#DaceIntTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceIntTalks","GLOBAL",1)~ + T#DI7_2
@@ -1352,7 +1350,7 @@ IF ~~ T#DI7_8
 END
 
 //SOA INT 4
-IF ~RealGlobalTimerExpired("T#DaceIntTalksTimer","GLOBAL") Global("T#DaceIntTalks","GLOBAL",7)~ T#DI8_1
+IF ~Global("T#DaceIntTalks","GLOBAL",7)~ T#DI8_1
   SAY @453
   ++ @454 DO ~RealSetGlobalTimer("T#DaceIntTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceIntTalks","GLOBAL",1)~ + T#DI8_2
   ++ @455 DO ~RealSetGlobalTimer("T#DaceIntTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceIntTalks","GLOBAL",1)~ + T#DI8_2
@@ -1400,7 +1398,7 @@ END
 
 
 //SOA INT 5
-IF ~RealGlobalTimerExpired("T#DaceIntTalksTimer","GLOBAL") Global("T#DaceIntTalks","GLOBAL",9)~ T#DI10_1
+IF ~Global("T#DaceIntTalks","GLOBAL",9)~ T#DI10_1
   SAY @481
   ++ @482 DO ~RealSetGlobalTimer("T#DaceIntTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceIntTalks","GLOBAL",1)~ + T#DI10_2
   ++ @483 DO ~RealSetGlobalTimer("T#DaceIntTalksTimer","GLOBAL",2700) IncrementGlobal("T#DaceIntTalks","GLOBAL",1)~ + T#DI10_2
@@ -1460,7 +1458,7 @@ END
 // Only fire if you picked up Dace the first time and aren't in a romance...
 
 //SOA INT 6
-IF ~RealGlobalTimerExpired("T#DaceIntTalksTimer","GLOBAL") Global("T#DaceIntTalks","GLOBAL",11)~ T#DI12_1
+IF ~Global("T#DaceIntTalks","GLOBAL",11)~ T#DI12_1
   SAY @506
   ++ @507 + T#DI12_2
   ++ @508 + T#DI12_2
@@ -1480,7 +1478,7 @@ END
 
 IF ~~ T#DI12jackass
   SAY @390
-  IF ~~ DO ~SetGlobal("T#DaceJackass","GLOBAL",1) RestParty()~ EXIT
+  IF ~~ DO ~SetGlobal("T#DaceJackass","GLOBAL",1) IncrementGlobal("T#DaceIntTalks","GLOBAL",1) RestParty()~ EXIT
 END
 
 IF ~~ T#DI12_3
@@ -3135,9 +3133,14 @@ INTERJECT BODHIAMB 5 T#DaceBodhiAbduct
   == BODHIAMB IF ~Global("T#DaceRomanceActive","GLOBAL",2) InParty("T#Dace")~ THEN
   @1028
 END
+/*
   IF ~OR(2) !InPartyAllowDead("T#Dace") Dead("T#Dace")~ EXTERN BODHIAMB 6
   IF ~InPartyAllowDead("T#Dace") !Dead("T#Dace")~ EXTERN BODHIAMB T#DaceBodhiAbduct_1
-  
+*/
+  IF ~OR(3) !InParty("T#Dace") StateCheck("T#Dace",CD_STATE_NOTVALID) !See("T#Dace")~ EXTERN BODHIAMB 6
+  IF ~InParty("T#Dace") !StateCheck("T#Dace",CD_STATE_NOTVALID) See("T#Dace")~ EXTERN BODHIAMB T#DaceBodhiAbduct_1
+
+
 CHAIN BODHIAMB T#DaceBodhiAbduct_1
   @1029
   == T#DACEJ @1030
@@ -3322,8 +3325,8 @@ END
 CHAIN IF ~Global("T#DaceJTSewers","GLOBAL",1)~ THEN T#DACEJ T#DaceJTSewers
   @1067
   DO ~IncrementGlobal("T#DaceJTSewers","GLOBAL",1)~
-  == AERIEJ IF ~InParty("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @1068
-  == T#DACEJ IF ~InParty("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID)~ THEN @1069
+  == AERIEJ IF ~InParty("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID) See("Aerie")~ THEN @1068
+  == T#DACEJ IF ~InParty("Aerie") !StateCheck("Aerie",CD_STATE_NOTVALID) See("Aerie")~ THEN @1069
 EXIT
 
 
@@ -3609,7 +3612,7 @@ END
 IF ~~ T#DaceInit_RomFlirts1
   SAY @1140
   = @1141
-  = @1141
+  = @2036
   IF ~~ EXIT
 END
 

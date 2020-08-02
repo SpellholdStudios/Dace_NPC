@@ -623,11 +623,9 @@
 
         <p class="about">
 
-          <a href="http://www.spellholdstudios.net/ie/dace">Mod Website</a> &#8226;
-
           <a href="http://www.shsforums.net/forum/572-dace/">Mod Forum</a> &#8226;
 
-          Version: 1.2
+          Version: 3
 
         </p>
 
@@ -686,7 +684,7 @@
           <h2>Installation</h2>
           <h5>PC</h5>
 
-          <p>The Dace NPC mod is a WeiDU mod, packaged in an extractable .RAR archive. Simply unrar <em>"dace_v1.1.rar"</em> (<a href="http://www.rarlabs.com">WinRAR</a>) into your Baldur's Gate II directory and run <em>"setup-dace.exe"</em>.
+          <p>The Dace NPC mod is a WeiDU mod, packaged in an extractable .zip archive. Simply unrar <em>"dace_vx.zip"</em> (<a href="http://www.rarlabs.com">WinRAR</a>) into your Baldur's Gate II directory and run <em>"setup-dace.exe"</em>.
           <p>To uninstall, run <em>"setup-dace.exe"</em> again and select the uninstall option.</p>
           <h5>Compatibility and Installation Order</h5>
 
@@ -782,6 +780,49 @@
         <div class="content">
 
           <h2>Version history</h2>
+
+          <h6>27th February 2019 - Version 3 (by jastey):</h6>
+
+          <ul>
+            <li>last line in "clean your face" flirt restored (wrong tra reference)</li>
+            <li>Edwin's Nether Scroll quest: Edwin will no longer turn hostile after Dace's interjection (added passback line to original character)</li>
+            <li>fixed Dace-Sarevok interaction in ToB</li>
+            <li>moved interjection from end-Melissan to earlier dialogue state so it doesn't screw the cutscene</li>
+            <li>kickout and rejoin dialogue should work</li>
+            <li>optimized dialogue trigger scripts (no timers in the dialogue triggers, !See([ENEMY]) etc in the activation script block, etc)</li>
+            <li>optimimized order of actions in dialogues (EscapeArea() at the end of actions etc.)</li>
+            <li>switched mixed-up DAMAGE and HURT lines</li>
+            <li>removed Yoshimo's sound references from Dace's cre files</li>
+            <li>Dace's higher level cres now use THIEF_FEMALE_HUMAN avatar, too</li>
+            <li>first lines of banters weren't traified</li>
+            <li>last Viconia's banter didn't use the correct dlg</li>
+            <li>removed Undroppable flag from cre files Hellcat item reference (Dace should be able to equip the weapon after she died).</li>
+            <li>Watcher's Keep interjections should trigger correctly and not end abruptly</li>
+            <li>added STATE_NOTVALID trigger to dream script so hopefully CTD upon resting with Dace dead in Party doesn't occur again</li>
+            <li>added "See("xxx")" to all interjections</li>
+            <li>added "Global("T#Dace_WasInParty","GLOBAL",1)" if Dace was in party and changed her reappearances to MoveGlobal in case she was in party before.</li>
+            <li>interjection into Illasera if in party will no longer end abruptly </li>
+			<li>the whole "Dace and Illasera" scenarios should work as intended</li>
+            <li>if not in party and not friendly: cutscene will spawn Dace near Illasera to prevent her from walking while Illasera is already attacking the PC</li>
+            <li>fixed wrong DV call "Dace" for check whether Dace can talk (banter and rest talks)</li>
+            <li>epilogues fixed (EXTEND_TOP + Continue())</li>
+            <li>fixed references to t#dace25.cre and corrected tob dlg and script patching</li>
+            <li>added missing copy of t#dace14.cre</li>
+            <li>EET compatibility added</li>
+            <li>updated ids patching</li>
+			<li>added REQUIRE_COMPONENT ~dace.tp2~ to optional portrait component</li>
+			<li>added dace.ini with mod info metadata</li>
+            <li>update to WeiDU v246</li>
+
+          </ul>
+
+          <h6>14th November 2013 - Version 1.3 (package name)/ 2 (tp2 version):</h6>
+
+          <ul>
+
+            <li>BGII:EE compatibility</li>
+
+          </ul>
 
           <h6>3rd February 2013 - Version 1.2:</h6>
 

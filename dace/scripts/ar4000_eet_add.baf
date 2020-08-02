@@ -1,0 +1,10 @@
+/* EET: cgange to ToB script */
+IF
+	InPartyAllowDead("T#Dace")
+	Global("T#DaceEETScriptChange","MYAREA",0)
+THEN
+	RESPONSE #100
+		ActionOverride("T#Dace",ChangeAIScript("T#DAC25",OVERRIDE))
+		SetGlobal("T#DaceEETScriptChange","MYAREA",1)
+		Continue()
+END

@@ -57,3 +57,6 @@
 @56   = ~Yes.  But you will be watched.~
 @57   = ~No, Dace.  I'm sorry.  No hard feelings about the Illasera thing--I just can't take you with me.~
 @58   = ~Oh, thank you, Ducky!  I'm glad to be with you an' your motley crew again.  Hope I can make this little misunderstanding up to you.~ [t#dac594]
+
+/* new for v3 */
+@59   = ~So we fight!~

@@ -9,7 +9,8 @@ IF
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
     Dead("Illasera")
-    !See([ENEMY])
+    CombatCounter(0)
+//    !See([ENEMY]) //would also give true for dead enemies
     AreaCheck("AR4000")
     Global("T#DaceToBIntroTalk","GLOBAL",1)
 THEN
@@ -20,13 +21,13 @@ END
 IF
     InParty(Myself)
     See(Player1)
-    !Dead("T#Dace")
-    !See([ENEMY])
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
     Global("T#DaceToBIntroTalk","GLOBAL",2)
 THEN
   RESPONSE #100
-    MoveToObject(Player1)
-    Dialogue(Player1)
+//    MoveToObject(Player1) //"Dialogue()" already incldes the "walk up to" part
+    Dialogue(Player1) 
 END
 
 // ---------------------------------------------
@@ -35,6 +36,11 @@ END
 // "Gift"
 IF
     InParty(Myself)
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     Global("T#DaceRomanceActive","GLOBAL",2)
     AreaCheck("AR4000")     
     !Dead("T#Dace")
@@ -48,6 +54,11 @@ END
 IF
     InParty(Myself)
     !Dead("T#Dace")
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     RealGlobalTimerExpired("T#DaceToBGiftTalkTimer","GLOBAL")
     Global("T#DaceRomanceActive","GLOBAL",2)
     Global("T#DaceToBGiftTalk","GLOBAL",1)
@@ -62,10 +73,6 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
-    RealGlobalTimerExpired("T#DaceToBGiftTalkTimer","GLOBAL")
-    Global("T#DaceRomanceActive","GLOBAL",2)
-    CombatCounter(0)
-    !See([ENEMY])
     Global("T#DaceToBGiftTalk","GLOBAL",2)
 THEN
   RESPONSE #100
@@ -82,10 +89,6 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
-    RealGlobalTimerExpired("T#DaceToBChallengeTalkTimer","GLOBAL")
-    Global("T#DaceRomanceActive","GLOBAL",2)
-    CombatCounter(0)
-    !See([ENEMY])
     OR(5)
       Global("T#DaceToBCh1Talk","GLOBAL",2)
       Global("T#DaceToBCh2Talk","GLOBAL",2)
@@ -104,6 +107,11 @@ END
 IF
     InParty(Myself)
     !Dead("T#Dace")
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     Global("T#DaceRomanceActive","GLOBAL",2)
     Global("BeginChallenge1","GLOBAL",12)
     Global("T#DaceToBCh1Talk","GLOBAL",0)
@@ -116,6 +124,11 @@ END
 IF
     InParty(Myself)
     !Dead("T#Dace")
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     RealGlobalTimerExpired("T#DaceToBChallengeTalkTimer","GLOBAL")
     Global("T#DaceToBCh1Talk","GLOBAL",1)
 THEN
@@ -127,6 +140,11 @@ END
 IF
     InParty(Myself)
     !Dead("T#Dace")
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     Global("T#DaceRomanceActive","GLOBAL",2)
     Global("BeginChallenge2","GLOBAL",3)
     Global("T#DaceToBCh2Talk","GLOBAL",0)
@@ -139,6 +157,11 @@ END
 IF
     InParty(Myself)
     !Dead("T#Dace")
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     RealGlobalTimerExpired("T#DaceToBChallengeTalkTimer","GLOBAL")
     Global("T#DaceToBCh2Talk","GLOBAL",1)
 THEN
@@ -150,6 +173,11 @@ END
 IF
     InParty(Myself)
     !Dead("T#Dace")
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     Global("T#DaceRomanceActive","GLOBAL",2)
     Global("BeginChallenge3","GLOBAL",3)
     Global("T#DaceToBCh3Talk","GLOBAL",0)
@@ -162,6 +190,11 @@ END
 IF
     InParty(Myself)
     !Dead("T#Dace")
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     RealGlobalTimerExpired("T#DaceToBChallengeTalkTimer","GLOBAL")
     Global("T#DaceToBCh3Talk","GLOBAL",1)
 THEN
@@ -173,6 +206,11 @@ END
 IF
     InParty(Myself)
     !Dead("T#Dace")
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     Global("T#DaceRomanceActive","GLOBAL",2)
     Global("BeginChallenge4","GLOBAL",6)
     Global("T#DaceToBCh4Talk","GLOBAL",0)
@@ -184,6 +222,12 @@ END
 
 IF
     InParty(Myself)
+    !Dead("T#Dace")
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     RealGlobalTimerExpired("T#DaceToBChallengeTalkTimer","GLOBAL")
     Global("T#DaceToBCh4Talk","GLOBAL",1)
 THEN
@@ -195,6 +239,11 @@ END
 IF
     InParty(Myself)
     !Dead("T#Dace")
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     Global("T#DaceRomanceActive","GLOBAL",2)
     Global("BeginChallenge5","GLOBAL",4)
     Global("T#DaceToBCh5Talk","GLOBAL",0)
@@ -206,6 +255,12 @@ END
 
 IF
     InParty(Myself)
+    !Dead("T#Dace")
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     RealGlobalTimerExpired("T#DaceToBChallengeTalkTimer","GLOBAL")
     Global("T#DaceToBCh5Talk","GLOBAL",1)
 THEN
@@ -218,6 +273,11 @@ END
 IF
     InParty(Myself)
     !Dead("T#Dace")
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     Global("T#DaceRomanceActive","GLOBAL",2)
     Global("SaradushSacked","GLOBAL",1)
     Global("T#DaceToBSaradushTalk","GLOBAL",0)
@@ -269,7 +329,12 @@ END
 
 IF
     InParty(Myself)
+    See(Player1)
     !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     RealGlobalTimerExpired("T#DaceToBReassureTalkTimer","GLOBAL")
     Global("T#DaceToBReassureTalk","GLOBAL",1)
     Global("T#DaceRomanceActive","GLOBAL",2)
@@ -284,9 +349,6 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
-    CombatCounter(0)
-    !See([ENEMY])
-    Global("T#DaceRomanceActive","GLOBAL",2)
     Global("T#DaceToBReassureTalk","GLOBAL",2)
 THEN
   RESPONSE #100
@@ -319,9 +381,6 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
-    !See([ENEMY])
-    CombatCounter(0)
-    Global("T#DaceRomanceActive","GLOBAL",2)
     Global("T#DaceWraith","GLOBAL",2)
 THEN
   RESPONSE #100
@@ -349,8 +408,13 @@ END
 
 IF
     InParty(Myself)
+    See(Player1)
     !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
     RealGlobalTimerExpired("T#DaceToBCheckTalkTimer","GLOBAL")
+    CombatCounter(0)
+    !See([ENEMY])
     Global("T#DaceToBCheckTalk","GLOBAL",1)
 THEN
   RESPONSE #100
@@ -363,9 +427,6 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
-    RealGlobalTimerExpired("T#DaceToBCheckTalkTimer","GLOBAL")
-    CombatCounter(0)
-    !See([ENEMY])
     Global("T#DaceToBCheckTalk","GLOBAL",2)
 THEN
   RESPONSE #100     
@@ -391,8 +452,13 @@ END
 
 IF
     InParty(Myself)
+    See(Player1)
     !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
     RealGlobalTimerExpired("T#DaceToBApologyTalkTimer","GLOBAL")
+    CombatCounter(0)
+    !See([ENEMY])
     Global("T#DaceToBApologyTalk","GLOBAL",1)
 THEN
   RESPONSE #100
@@ -405,9 +471,6 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
-    RealGlobalTimerExpired("T#DaceToBApologyTalkTimer","GLOBAL")
-    CombatCounter(0)
-    !See([ENEMY])
     Global("T#DaceToBApologyTalk","GLOBAL",2)
 THEN
   RESPONSE #100
@@ -425,6 +488,7 @@ IF
     Global("T#DaceFriendshipActive","GLOBAL",1)
     !Global("T#DaceRomanceActive","GLOBAL",2)
     Global("T#DaceToBApologyTalk","GLOBAL",3)
+    Global("T#DaceToBBaconTalk","GLOBAL",0)
 THEN
   RESPONSE #100
     SetGlobal("T#DaceToBBaconTalk","GLOBAL",1)
@@ -434,7 +498,12 @@ END
 
 IF
     InParty(Myself)
+    See(Player1)
     !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     RealGlobalTimerExpired("T#DaceToBBaconTalkTimer","GLOBAL")
     Global("T#DaceToBBaconTalk","GLOBAL",1)
 THEN
@@ -448,9 +517,6 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
-    RealGlobalTimerExpired("T#DaceToBBaconTalkTimer","GLOBAL")
-    CombatCounter(0)
-    !See([ENEMY])
     Global("T#DaceToBBaconTalk","GLOBAL",2)
 THEN
   RESPONSE #100
@@ -476,6 +542,7 @@ END
 
 IF
     RealGlobalTimerExpired("T#DaceToBFlirtTimer","GLOBAL")
+    See(Player1)
     InParty(Myself)
     !Dead("T#Dace")
     Global("T#DaceToBTimeForFlirt","GLOBAL",0)
@@ -518,6 +585,8 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     AreaCheck("AR3021")
     Global("T#DaceJWFlay","GLOBAL",0)
 THEN
@@ -546,6 +615,8 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     AreaCheck("AR3027")
     Global("T#DaceJWLich","GLOBAL",0)
 THEN
@@ -574,6 +645,8 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     OR(6)
       Range("BAZEYE03",15)
       Range("BAZEYE04",15)
@@ -608,6 +681,7 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
+// no enemy check here!
     AreaCheck("AR6103")
     Global("T#DaceJToBSpiders","GLOBAL",0)
 THEN
@@ -650,6 +724,8 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     See("SENLICH")
     Global("T#DaceJToBLich","GLOBAL",0)
 THEN
@@ -678,6 +754,8 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     Global("SendaiHostile","AR6108",1)
     Global("T#DaceJToBSenStatues","GLOBAL",0)
 THEN
@@ -713,7 +791,7 @@ IF
     CombatCounter(0)
     !See([ENEMY])
     InParty("Sarevok")
-    Global("T#DaceSarevokToB","GLOBAL",1)
+    Global("T#DaceSarevokToB","GLOBAL",0)
 THEN
   RESPONSE #100
     IncrementGlobal("T#DaceSarevokToB","GLOBAL",1)

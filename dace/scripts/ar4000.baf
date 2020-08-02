@@ -2,6 +2,8 @@
 // Dace SoA - AR4000
 // --------------------------------------------
 // Spawn Dace
+
+/* there is no T#DAC25.cre
 IF
     !InParty("T#Dace")
     OR(2)
@@ -11,7 +13,53 @@ IF
 THEN
   RESPONSE #100
     SetGlobal("T#DaceExistsToBJoin","GLOBAL",1)
-    CreateCreature("T#DAC25",[440.1000],3)
+//    CreateCreature("T#DAC25",[440.1000],3)
+    ActionOverride("T#Dace",MoveToPointNoInterrupt([830.800]))
+    Wait(1)
+    ActionOverride("T#Dace",StartDialogueNoSet(Player1))
+END
+
+*/
+
+/* was not in party (this is probably not needed) */
+IF
+    !InPartyAllowDead("T#Dace")
+    !Dead("T#Dace")
+    Global("T#Dace_WasInParty","GLOBAL",0)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Dead("Illasera") //is supposed to happen after Illasera is dead
+    CombatCounter(0)
+    OR(2)
+      Global("T#DaceFriendshipActive","GLOBAL",1)
+      Global("T#DaceRomanceActive","GLOBAL",2)
+    Global("T#DaceExistsToBJoin","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceExistsToBJoin","GLOBAL",1)
+    CreateCreature("t#dace25",[440.1000],3)
+    ActionOverride("T#Dace",MoveToPointNoInterrupt([830.800]))
+    Wait(1)
+    ActionOverride("T#Dace",StartDialogueNoSet(Player1))
+END
+
+/* was in party */
+IF
+    !InPartyAllowDead("T#Dace")
+    !Dead("T#Dace")
+    Global("T#Dace_WasInParty","GLOBAL",1)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Dead("Illasera") //is supposed to happen after Illasera is dead
+    CombatCounter(0)
+    OR(2)
+      Global("T#DaceFriendshipActive","GLOBAL",1)
+      Global("T#DaceRomanceActive","GLOBAL",2)
+    Global("T#DaceExistsToBJoin","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceExistsToBJoin","GLOBAL",1)
+    MoveGlobal("AR4000","T#Dace",[440.1000])
+    ActionOverride("T#Dace",ChangeAIScript("t#dac25",OVERRIDE))
+    ActionOverride("T#Dace",SetDialog("t#dac25"))
     ActionOverride("T#Dace",MoveToPointNoInterrupt([830.800]))
     Wait(1)
     ActionOverride("T#Dace",StartDialogueNoSet(Player1))

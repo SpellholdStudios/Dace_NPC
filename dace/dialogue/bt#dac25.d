@@ -18,7 +18,7 @@ Range("T#Dace",30)
 Global("T#DaceAerieToB","GLOBAL",0)
 ~
 THEN BAERIE25 DACEAERT1
-~Can I ask you something, Dace?~[t#dac972] 
+@0 /* ~Can I ask you something, Dace?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceAerieToB","GLOBAL",1)~
 == BT#DAC25
 @1
@@ -55,7 +55,7 @@ Range("Aerie",30)
 Global("T#DaceAerieToB","GLOBAL",1)
 ~
 THEN BT#DAC25 T#DACEAERT2
-~Aerie, I'm honestly not tryin' to sound disrespectful, here, but I have one of my patented theological questions for you.  Strictly rhetorical, of course--I don't think anybody wonders how I feel about the ambitions and Damn Foolery involved in makin' such a choice--but if <CHARNAME> chooses or manages or is made to or whatever, oh, what I'm tryin' to is, how would that affect you?  If <CHARNAME> popped up as the next <PROLADY_LORD> of Murder? Or even of Fluffy Bunnies? Bein' a cleric, an' all?  Does it lessen the "realness" of Baervan, seein' a mortal friend of yours become a god?~[t#dac972] 
+@11 /* ~Aerie, I'm honestly not tryin' to sound disrespectful, here, but I have one of my patented theological questions for you.  Strictly rhetorical, of course--I don't think anybody wonders how I feel about the ambitions and Damn Foolery involved in makin' such a choice--but if <CHARNAME> chooses or manages or is made to or whatever, oh, what I'm tryin' to is, how would that affect you?  If <CHARNAME> popped up as the next <PROLADY_LORD> of Murder? Or even of Fluffy Bunnies? Bein' a cleric, an' all?  Does it lessen the "realness" of Baervan, seein' a mortal friend of yours become a god?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceAerieToB","GLOBAL",1)~
 == BAERIE25
 @12
@@ -85,7 +85,7 @@ Range("Anomen",30)
 Global("T#DaceAnomenToB","GLOBAL",0)
 ~
 THEN BT#DAC25 T#DACEANOT1
-~Got a serious religious query for ‘ya, Bunny.  I know you don't much like talkin' to me, but don't you have some kinda responsibility to answer me?  Aren't I one of the lost and wanderin'?~[t#dac972] 
+@17 /* ~Got a serious religious query for ‘ya, Bunny.  I know you don't much like talkin' to me, but don't you have some kinda responsibility to answer me?  Aren't I one of the lost and wanderin'?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceAnomenToB","GLOBAL",1)~
 == BANOME25
 @18
@@ -117,7 +117,7 @@ Range("Anomen",30)
 Global("T#DaceAnomenToB","GLOBAL",1)
 ~
 THEN BT#DAC25 T#DACEANOT1
-~Bunny, ‘member what we were talkin' about before?  Well, I've been thinkin', and I still think it comes down, though, in the end, to an altar or a throne.  Your power isn't yours; it's only lent to you.~[t#dac972]
+@26 /* ~Bunny, ‘member what we were talkin' about before?  Well, I've been thinkin', and I still think it comes down, though, in the end, to an altar or a throne.  Your power isn't yours; it's only lent to you.~[t#dac972] */
 DO ~IncrementGlobal("T#DaceAnomenToB","GLOBAL",1)~
 == BANOME25
 @27
@@ -147,7 +147,7 @@ Range("Cernd",30)
 Global("T#DaceCerndToB","GLOBAL",0)
 ~
 THEN BT#DAC25 T#DACECERT1
-~Cernd, I still just can't get over the fact that you can do that thing you do.~[t#dac972] 
+@32 /* ~Cernd, I still just can't get over the fact that you can do that thing you do.~[t#dac972] */
 DO ~IncrementGlobal("T#DaceCerndToB","GLOBAL",1)~
 == BCERND25
 @33
@@ -183,7 +183,7 @@ Range("Edwin",30)
 Global("T#DaceEdwinToB","GLOBAL",0)
 ~
 THEN BT#DAC25 T#DACEEDWT1
-~How would I do in business in Thay, Edwin?~[t#dac972] 
+@41 /* ~How would I do in business in Thay, Edwin?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceEdwinToB","GLOBAL",1)~
 == BEDWIN25
 @42
@@ -209,7 +209,7 @@ GlobalGT("T#DaceEdwin","GLOBAL",3)
 Global("T#DaceEdwinToB","GLOBAL",1)
 ~
 THEN BT#DAC25 T#DACEEDWT1
-~Edwin, honey, the other day I found myself thinkin' about our youthful indiscretions.~[t#dac972] 
+@46 /* ~Edwin, honey, the other day I found myself thinkin' about our youthful indiscretions.~[t#dac972] */
 DO ~IncrementGlobal("T#DaceEdwinToB","GLOBAL",1)~
 == BEDWIN25
 @47
@@ -249,7 +249,7 @@ Range("T#Dace",30)
 Global("T#DaceHaerToB","GLOBAL",0)
 ~
 THEN BHAERD25 DACEHAET1
-~Forgive me, fierce falcon, but I have reached the limits of my endurance and cannot hold this back any longer.~[t#dac972]
+@57 /* ~Forgive me, fierce falcon, but I have reached the limits of my endurance and cannot hold this back any longer.~[t#dac972] */
 DO ~IncrementGlobal("T#DaceHaerToB","GLOBAL",1)~
 == BT#DAC25 
 @58
@@ -282,7 +282,7 @@ Range("Haerdalis",30)
 Global("T#DaceHaerToB","GLOBAL",1)
 ~
 THEN BT#DAC25 T#DACEHAET2
-~So, Hank, when this is all over an' you sit down to write a glorious saga, are you gonna have to downplay your part in it?  Now, you don't exactly radiate humility, darlin', but I'm just askin' if it isn't bad form to be one of the heroes of your own tales.~[t#dac972]
+@66 /* ~So, Hank, when this is all over an' you sit down to write a glorious saga, are you gonna have to downplay your part in it?  Now, you don't exactly radiate humility, darlin', but I'm just askin' if it isn't bad form to be one of the heroes of your own tales.~[t#dac972] */
 DO ~IncrementGlobal("T#DaceHaerToB","GLOBAL",1)~
 == BHAERD25
 @67
@@ -318,7 +318,7 @@ Range("Imoen2",30)
 Global("T#DaceImoenToB","GLOBAL",0)
 ~
 THEN BT#DAC25 T#DACEIMOT1
- ~How's life treatin' you, kiddo?  Feelin' all  right?  So much goin' on...~[t#dac972] 
+@75 /* ~How's life treatin' you, kiddo?  Feelin' all  right?  So much goin' on...~[t#dac972] */
 DO ~IncrementGlobal("T#DaceImoenToB","GLOBAL",1)~
 == BIMOEN25
 @76
@@ -354,7 +354,7 @@ Global("T#DaceRomanceActive","GLOBAL",2)
 Global("T#DaceImoenToB","GLOBAL",1)
 ~
 THEN BT#DAC25 T#DACEIMOT1
-~Whatchu grinnin' at me for, you minx?~[t#dac972]
+@85 /* ~Whatchu grinnin' at me for, you minx?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceImoenToB","GLOBAL",1)~
 == BIMOEN25
 @86
@@ -388,7 +388,7 @@ Range("Jaheira",30)
 Global("T#DaceJaheiraToB","GLOBAL",0)
 ~
 THEN BT#DAC25 T#DACEJAHT1
-~Sugarbear, I just have to ask you, as somebody who is just never gonna know.  What's it like, bein' a mother?~[t#dac972]
+@93 /* ~Sugarbear, I just have to ask you, as somebody who is just never gonna know.  What's it like, bein' a mother?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceJaheiraToB","GLOBAL",1)~
 == BJAHEI25
 @94
@@ -415,7 +415,7 @@ Range("Jaheira",30)
 Global("T#DaceJaheiraToB","GLOBAL",1)
 ~
 THEN BT#DAC25 T#DACEJAHT2
-~Hey, yum!  I knew you were hidin' in my pack somewhere, Mr.Bacon.~[t#dac972]
+@99 /* ~Hey, yum!  I knew you were hidin' in my pack somewhere, Mr.Bacon.~[t#dac972] */
 DO ~IncrementGlobal("T#DaceJaheiraToB","GLOBAL",1)~
 == BJAHEI25
 @100
@@ -445,7 +445,7 @@ Range("Jan",30)
 Global("T#DaceJanToB","GLOBAL",0)
 ~
 THEN BT#DAC25 T#DACEJANT1
-~Hey, Jansen, can I get some turnip seeds from you when all this is over?  I have to admit, you've helped me develop a sort of taste for mashed turnip with bacon all mixed in, and I wouldn't mind growin' some on my land.~[t#dac972]
+@105 /* ~Hey, Jansen, can I get some turnip seeds from you when all this is over?  I have to admit, you've helped me develop a sort of taste for mashed turnip with bacon all mixed in, and I wouldn't mind growin' some on my land.~[t#dac972] */
 DO ~IncrementGlobal("T#DaceJanToB","GLOBAL",1)~
 == BJAN25
 @106
@@ -473,7 +473,7 @@ Range("Keldorn",30)
 Global("T#DaceKeldornToB","GLOBAL",0)
 ~
 THEN BT#DAC25 T#DACEKELT1
-~Keldorn.~[t#dac972]
+@110 /* ~Keldorn.~[t#dac972] */
 DO ~IncrementGlobal("T#DaceKeldornToB","GLOBAL",1)~
 == BKELDO25
 @111
@@ -511,7 +511,7 @@ GlobalGT("T#DaceKeldorn","GLOBAL",2)
 Global("T#DaceKeldornToB","GLOBAL",1)
 ~
 THEN BT#DAC25 T#DACEKELT1
-~I think I might try my hand at seducin' you now, Keldorn.  Not as though it could do any harm--the way I see it, you've got a free one comin', what with your wife doin' as she did.  It'd hardly even be corruption, really.  Just evenin' the score, see?~[t#dac972]
+@121 /* ~I think I might try my hand at seducin' you now, Keldorn.  Not as though it could do any harm--the way I see it, you've got a free one comin', what with your wife doin' as she did.  It'd hardly even be corruption, really.  Just evenin' the score, see?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceKeldornToB","GLOBAL",1)~
 == BKELDO25
 @122
@@ -543,7 +543,7 @@ Range("Korgan",30)
 Global("T#DaceKorganToB","GLOBAL",0)
 ~
 THEN BT#DAC25 DACEKORT1
-~Hey, Korgan, d'ya wanna get matchin' tattoos?  We could get somethin' real tough, as befits us hard-bitten mercenary types.  An' we could be our own little gang--just you an' me an' our matchin', tough tattoos!~[t#dac972]
+@128 /* ~Hey, Korgan, d'ya wanna get matchin' tattoos?  We could get somethin' real tough, as befits us hard-bitten mercenary types.  An' we could be our own little gang--just you an' me an' our matchin', tough tattoos!~[t#dac972] */
 DO ~IncrementGlobal("T#DaceKorganToB","GLOBAL",1)~
 == BKORGA25
 @129
@@ -569,7 +569,7 @@ Range("Mazzy",30)
 Global("T#DaceMazzyToB","GLOBAL",0)
 ~
 THEN BT#DAC25 T#DACEMAZT1
-~When is that goddess of yours gonna get off her ass an' promote you to paladin, Mazzy?~[t#dac972]
+@132 /* ~When is that goddess of yours gonna get off her ass an' promote you to paladin, Mazzy?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceMazzyToB","GLOBAL",1)~
 == BMAZZY25
 @133
@@ -596,7 +596,7 @@ Range("T#Dace",30)
 Global("T#DaceMinscToB","GLOBAL",0)
 ~
 THEN BMINSC25 DACEMINT1
-~Boo has something he wishes for me to tell you, Dace.~[t#dac972]
+@137 /* ~Boo has something he wishes for me to tell you, Dace.~[t#dac972] */
 DO ~IncrementGlobal("T#DaceMinscToB","GLOBAL",1)~
 == BT#DAC25
 @138
@@ -635,8 +635,8 @@ Range("T#Dace",30)
 !StateCheck("Nalia",CD_STATE_NOTVALID)
 Global("T#DaceNaliaToB","GLOBAL",0)
 ~
-THEN BNALIA25 DACENALT1
-~Dace?~[t#dac972]
+THEN BNALIA25 DACENALT1 
+@148 /* ~Dace?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceNaliaToB","GLOBAL",1)~
 == BT#DAC25 
 @149
@@ -670,7 +670,7 @@ CHAIN IF
 Global("T#DaceSarevokToB","GLOBAL",1)
 ~
 THEN BT#DAC25 T#DACESART1
-~Well, aren't you cute?  Big fella, that's for damn sure.  ‘Sposed to be dead, from what I hear, but that's never stopped anybody from droppin' by to visit <CHARNAME> before.  What is it about you, Ducky, that makes that true, by the way?~[t#dac972]
+@159 /* ~Well, aren't you cute?  Big fella, that's for damn sure.  ‘Sposed to be dead, from what I hear, but that's never stopped anybody from droppin' by to visit <CHARNAME> before.  What is it about you, Ducky, that makes that true, by the way?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceSarevokToB","GLOBAL",1)~
 == BSAREV25
 @160
@@ -696,10 +696,10 @@ InParty("Sarevok")
 Range("Sarevok",30)
 !StateCheck("Sarevok",CD_STATE_NOTVALID)
 !StateCheck("T#Dace",CD_STATE_NOTVALID)
-Global("T#DaceSarevokToB","GLOBAL",1)
+Global("T#DaceSarevokToB","GLOBAL",2)
 ~
 THEN BT#DAC25 T#DACESART2
-~Sarevok, honey,  do you think you and I could ever--~[t#dac972]
+@166 /* ~Sarevok, honey,  do you think you and I could ever--~[t#dac972] */
 DO ~IncrementGlobal("T#DaceSarevokToB","GLOBAL",1)~
 == BSAREV25
 @167
@@ -725,10 +725,10 @@ InParty("Sarevok")
 Range("Sarevok",30)
 !StateCheck("Sarevok",CD_STATE_NOTVALID)
 !StateCheck("T#Dace",CD_STATE_NOTVALID)
-Global("T#DaceSarevokToB","GLOBAL",2)
+Global("T#DaceSarevokToB","GLOBAL",3)
 ~
 THEN BT#DAC25 T#DACESART3
- ~...and then?~[t#dac972] 
+@173 /* ~...and then?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceSarevokToB","GLOBAL",1)~
 == BSAREV25
 @174
@@ -758,10 +758,10 @@ InParty("Sarevok")
 Range("Sarevok",30)
 !StateCheck("Sarevok",CD_STATE_NOTVALID)
 !StateCheck("T#Dace",CD_STATE_NOTVALID)
-Global("T#DaceSarevokToB","GLOBAL",3)
+Global("T#DaceSarevokToB","GLOBAL",4)
 ~
 THEN BT#DAC25 T#DACESART4
-~Sarevok, how would you feel about a cheese sandwich just now?~[t#dac972]
+@182 /* ~Sarevok, how would you feel about a cheese sandwich just now?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceSarevokToB","GLOBAL",1)~
 == BSAREV25
 @183
@@ -793,7 +793,7 @@ Range("Valygar",30)
 Global("T#DaceValygarToB","GLOBAL",0)
 ~
 THEN BT#DAC25 T#DACEVALT1
-~Valygar, I've got you all figured out, didja know that?~[t#dac972]
+@189 /* ~Valygar, I've got you all figured out, didja know that?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceValygarToB","GLOBAL",1)~
 == BVALYG25
 @190
@@ -820,7 +820,7 @@ Range("Valygar",30)
 Global("T#DaceValygarToB","GLOBAL",1)
 ~
 THEN BT#DAC25 T#DACEVALT2
-~Valygar, ‘member when you asked about my horses?~[t#dac972]
+@195 /* ~Valygar, ‘member when you asked about my horses?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceValygarToB","GLOBAL",1)~
 == BVALYG25
 @196
@@ -857,7 +857,7 @@ Range("Viconia",30)
 Global("T#DaceViconiaToB","GLOBAL",0)
 ~
 THEN BT#DAC25 T#DACEVICT1
-~Had a dream about you last night, Vicky.~[t#dac972]
+@203 /* ~Had a dream about you last night, Vicky.~[t#dac972] */
 DO ~IncrementGlobal("T#DaceViconiaToB","GLOBAL",1)~
 == BVICON25
 @204
@@ -888,7 +888,7 @@ Range("Viconia",30)
 Global("T#DaceViconiaToB","GLOBAL",1)
 ~
 THEN BT#DAC25 T#DACEVICT2
-~Hey, Vicky, next time we're fightin', think you could maybe stop fixin' your nails for a second and see if I need healin'?~[t#dac972]
+@211 /* ~Hey, Vicky, next time we're fightin', think you could maybe stop fixin' your nails for a second and see if I need healin'?~[t#dac972] */
 DO ~IncrementGlobal("T#DaceViconiaToB","GLOBAL",1)~
 == BVICON25
 @212
@@ -925,7 +925,7 @@ Range("T#Dace",30)
 Global("T#DaceViconiaToB","GLOBAL",2)
 ~
 THEN BVICONI DACEVICT3
- ~...no, they *are* part spider.  The procedure is a magical one.~[t#dac972]
+@222 /*  ~...no, they *are* part spider.  The procedure is a magical one.~[t#dac972] */
 DO ~IncrementGlobal("T#DaceViconiaToB","GLOBAL",1)~
 == BT#DAC25
 @223
@@ -958,8 +958,8 @@ Range("T#Dace",30)
 Global("T#DaceViconiaToB","GLOBAL",3)
 ~
 THEN BT#DAC25 T#DACEVICT4
-~What are you going to do after all this is over, Vicky?~[t#dac972]
-DO ~IncrementGlobal("T#DaceVICT4","GLOBAL",1)~
+@231 /* ~What are you going to do after all this is over, Vicky?~[t#dac972] */
+DO ~IncrementGlobal("T#DaceViconiaToB","GLOBAL",1)~
 == BVICON25
 @232
 == BT#DAC25

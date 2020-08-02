@@ -35,7 +35,7 @@ END
 
 IF ~~ T#DP4_3
   SAY @9
-  IF ~~ EXIT
+  IF ~~ DO ~JoinParty()~ EXIT
 END
 
 
@@ -52,15 +52,15 @@ END
 
 IF ~~ T#DP5_2
   SAY @16
-  IF ~~ DO ~LeaveParty() SetGlobal("T#DaceJoined","GLOBAL",0) EscapeArea()~ EXIT
+  IF ~~ DO ~SetGlobal("T#DaceJoined","GLOBAL",0) LeaveParty() EscapeArea()~ EXIT
 END
 
 IF ~~ T#DP5_3
   SAY @17
-  IF ~~ EXIT
+  IF ~~ DO ~JoinParty()~ EXIT
 END
 
 IF ~~ T#DP5_4
   SAY @18
-  IF ~~ EXIT
+  IF ~~ DO ~JoinParty()~ EXIT
 END

@@ -14,6 +14,16 @@ THEN
     StartDialogueNoSet(Player1)
 END
 
+/* was in party- check */
+
+IF
+Global("T#Dace_WasInParty","GLOBAL",0)
+InParty(Myself)
+THEN
+  RESPONSE #100
+SetGlobal("T#Dace_WasInParty","GLOBAL",1)
+END
+
 
 // ---------------------------------------------
 // "Sussing out" Dialogues
@@ -104,9 +114,6 @@ IF
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
     !Global("T#DaceJackass","GLOBAL",1)
-    RealGlobalTimerExpired("T#DaceIntTalksTimer","GLOBAL")
-    CombatCounter(0)
-    !See([ENEMY])
     OR(5)
       Global("T#DaceIntTalks","GLOBAL",1)
       Global("T#DaceIntTalks","GLOBAL",3)
@@ -123,8 +130,12 @@ END
 
 IF
     InParty(Myself)
-    See(Player1)           
+    See(Player1)
     !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
     RealGlobalTimerExpired("T#DaceIntTalksTimer","GLOBAL")
     !Global("T#DaceJackass","GLOBAL",1)
     OR(4)
@@ -141,7 +152,15 @@ END
 // Last "Intermediate" talk (morning after)
 IF
     InParty(Myself)
-    PartyRested()
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
+    !Global("T#DaceJackass","GLOBAL",1)
+    !Global("T#DaceFriendshipActive","GLOBAL",1)
+//    PartyRested()
     !Dead("T#Dace")
     Global("T#DaceIntTalks","GLOBAL",12)
 THEN
@@ -155,10 +174,6 @@ IF
     !Dead("T#Dace")
     !StateCheck(Myself,CD_STATE_NOTVALID)
     !StateCheck(Player1,CD_STATE_NOTVALID)
-    !Global("T#DaceJackass","GLOBAL",1)
-    CombatCounter(0)
-    !See([ENEMY])
-    !Global("T#DaceFriendshipActive","GLOBAL",1)
     Global("T#DaceIntTalks","GLOBAL",13)
 THEN
   RESPONSE #100
@@ -372,8 +387,8 @@ IF
       GlobalGT("T#DaceIntTalks","GLOBAL",0)
       Global("T#DaceRomanceActive","GLOBAL",2)
     OR(2)
-        GlobalLT("Chapter","GLOBAL",4)
-        Global("Chapter","GLOBAL",6)
+        GlobalLT("Chapter","GLOBAL",%bg2_chapter_4%)
+        Global("Chapter","GLOBAL",%bg2_chapter_6%)
     See(Player1)
     !StateCheck(Player1,CD_STATE_NOTVALID)
     !StateCheck(Myself,CD_STATE_NOTVALID)
@@ -1042,7 +1057,7 @@ IF
     !Dead("T#Dace")
     Range("Edwin",30)
     !StateCheck("Edwin",CD_STATE_NOTVALID)
-    !StateCheck("Dace",CD_STATE_NOTVALID)
+    !StateCheck("T#Dace",CD_STATE_NOTVALID)
     PartyRested()
     Global("T#DaceEdwin","GLOBAL",3)
 THEN
@@ -1057,7 +1072,7 @@ IF
     Range("Edwin",30)
     !Dead("T#Dace")
     !StateCheck("Edwin",CD_STATE_NOTVALID)
-    !StateCheck("Dace",CD_STATE_NOTVALID)
+    !StateCheck("T#Dace",CD_STATE_NOTVALID)
     Global("T#DaceEdwin","GLOBAL",4)
 THEN
   RESPONSE #100
@@ -1074,7 +1089,7 @@ IF
     Range("Nalia",30)
     !Dead("T#Dace")
     !StateCheck("Nalia",CD_STATE_NOTVALID)
-    !StateCheck("Dace",CD_STATE_NOTVALID)
+    !StateCheck("T#Dace",CD_STATE_NOTVALID)
     Global("NaliaWentToFuneral","GLOBAL",1)
     Global("T#DaceNalia","GLOBAL",0)
 THEN
@@ -1090,7 +1105,7 @@ IF
     Range("Nalia",30)
     !Dead("T#Dace")
     !StateCheck("Nalia",CD_STATE_NOTVALID)
-    !StateCheck("Dace",CD_STATE_NOTVALID)
+    !StateCheck("T#Dace",CD_STATE_NOTVALID)
     Global("NaliaWentToFuneral","GLOBAL",1)
     RealGlobalTimerExpired("T#DaceNaliaTimer","GLOBAL")
     Global("T#DaceNalia","GLOBAL",1)
@@ -1106,7 +1121,7 @@ IF
     Range("Nalia",30)
     !Dead("T#Dace")
     !StateCheck("Nalia",CD_STATE_NOTVALID)
-    !StateCheck("Dace",CD_STATE_NOTVALID)
+    !StateCheck("T#Dace",CD_STATE_NOTVALID)
     Global("T#DaceNalia","GLOBAL",2)
 THEN
   RESPONSE #100

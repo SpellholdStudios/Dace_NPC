@@ -3,12 +3,36 @@
 // --------------------------------------------
 // Basics
 BACKUP ~dace/backup~
-AUTHOR ~Tess Grey (tess.grey@gmail.com) & K'aeloree (kae@spellholdstudios.net)~
-VERSION ~v2~
+//AUTHOR ~Tess Grey (tess.grey@gmail.com) & K'aeloree (kae@spellholdstudios.net)~
+SUPPORT ~http://www.shsforums.net/forum/572-dace/~
+VERSION ~v3~
 README ~dace/dace_readme.html~
 
 // Translations
 AUTO_TRA ~dace/translations/%s~
+
+ALWAYS
+    ACTION_IF GAME_IS ~eet~ BEGIN
+      OUTER_SET bg2_chapter = 12
+    END ELSE BEGIN
+      OUTER_SET bg2_chapter = 0
+    END
+    OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
+      OUTER_SET bg2_chapter = bg2_chapter + 1
+      OUTER_SPRINT name_source ~bg2_chapter_%i%~
+      OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+    END
+
+    // convert strings to UTF-8 for BGEE/BG2EE
+    ACTION_DEFINE_ARRAY t#reload BEGIN setup END
+    LAF HANDLE_CHARSETS 
+	  INT_VAR 
+		infer_charsets = 1 
+	  STR_VAR 
+		tra_path = ~dace/translations~
+		reload_array = t#reload 
+    END
+END
 
 LANGUAGE ~English~
          ~english~
@@ -19,14 +43,14 @@ LANGUAGE ~English~
 // --------------------------------------------
 // Component setup
 BEGIN @1
-REQUIRE_PREDICATE GAME_IS ~bg2ee tob bgt~ @65
+REQUIRE_PREDICATE GAME_IS ~bg2ee tob bgt eet~ @65
 
-ACTION_IF FILE_EXISTS_IN_GAME ~saradush.mve~ THEN BEGIN
   // Adding CD_STATE_NOTVALID
   APPEND ~STATE.IDS~
     ~0x80101FEF CD_STATE_NOTVALID~
     UNLESS ~CD_STATE_NOTVALID~
-    
+
+ACTION_IF (GAME_IS ~bgt tob~ AND NOT FILE_EXISTS_IN_GAME ~cdbehbla.pro~) THEN BEGIN //makes sure the fixpack isn't already installed     
   // Fixing Imoen's dialogue file
   ACTION_IF FILE_EXISTS_IN_GAME ~mel01.cre~ THEN BEGIN
     COPY_EXISTING ~interdia.2da~ ~override~
@@ -43,19 +67,19 @@ ACTION_IF FILE_EXISTS_IN_GAME ~saradush.mve~ THEN BEGIN
 END
 
 // Dialogue files
-COMPILE ~dace/dialogue/t#dace.d~
+COMPILE EVALUATE_BUFFER ~dace/dialogue/t#dace.d~
 COMPILE ~dace/dialogue/bt#dace.d~
-COMPILE ~dace/dialogue/t#dacej.d~
+COMPILE EVALUATE_BUFFER ~dace/dialogue/t#dacej.d~
 COMPILE ~dace/dialogue/t#dacep.d~ 
   USING ~dace/translations/%LANGUAGE%/t#dacej.tra~
 COMPILE ~dace/dialogue/bt#dac25.d~
-COMPILE ~dace/dialogue/t#dac25j.d~
+COMPILE EVALUATE_BUFFER ~dace/dialogue/t#dac25j.d~
 COMPILE ~dace/dialogue/t#dac25.d~
 COMPILE ~dace/dialogue/t#dac25p.d~
 
 
 // Compiling scripts
-COMPILE ~dace/scripts/t#dace.baf~
+COMPILE EVALUATE_BUFFER ~dace/scripts/t#dace.baf~
 COMPILE ~dace/scripts/t#daced.baf~
 COMPILE ~dace/scripts/t#dac25.baf~
 COMPILE ~dace/scripts/t#dac25d.baf~
@@ -69,19 +93,23 @@ COMPILE ~dace/scripts/t#dawra.baf~
 EXTEND_BOTTOM ~bodhiamb.bcs~ ~dace/scripts/bodhiamb.baf~
 EXTEND_BOTTOM ~cleanse.bcs~  ~dace/scripts/cleanse.baf~
 EXTEND_BOTTOM ~vampamb.bcs~  ~dace/scripts/vampamb.baf~
-EXTEND_BOTTOM ~ar0300.bcs~   ~dace/scripts/ar0300.baf~
+EXTEND_BOTTOM ~ar0300.bcs~   ~dace/scripts/ar0300.baf~ EVALUATE_BUFFER
 EXTEND_BOTTOM ~ar0809.bcs~   ~dace/scripts/ar0809.baf~
-EXTEND_BOTTOM ~ar2000.bcs~   ~dace/scripts/ar2000.baf~
+EXTEND_BOTTOM ~ar2000.bcs~   ~dace/scripts/ar2000.baf~ EVALUATE_BUFFER
 EXTEND_BOTTOM ~ar4000.bcs~   ~dace/scripts/ar4000.baf~
-EXTEND_BOTTOM ~ar6200.bcs~   ~dace/scripts/ar6200.baf~
+EXTEND_TOP ~ar6200.bcs~   ~dace/scripts/ar6200.baf~
 EXTEND_TOP ~ar0700.bcs~   ~dace/scripts/ar0700.baf~
 EXTEND_TOP    ~cut218g.bcs~  ~dace/scripts/cut218g.baf~
+
+ACTION_IF GAME_IS ~eet~ THEN BEGIN
+    EXTEND_BOTTOM ~AR4000.bcs~ ~dace/scripts/ar4000_eet_add.baf~     EVALUATE_BUFFER
+END
 
 // Journals (BGII:EE)
 ADD_JOURNAL EXISTING TITLE (#74337) @1031 @1038 @2035 USING ~dace/translations/%LANGUAGE%/t#dacej.tra~
 
 // Images
-ACTION_IF GAME_IS BG2EE BEGIN
+ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
   COPY ~dace/images/lesatho_ee~ ~override~
 END ELSE BEGIN
   COPY ~dace/images/lesatho~ ~override~
@@ -102,8 +130,8 @@ COPY ~dace/creatures/t#dace8.cre~ ~override/t#dace8.cre~
   SAY BATTLE_CRY4 @12
   SAY BATTLE_CRY5 @13
   SAY DYING @14
-  SAY HURT @15
-  SAY DAMAGE @16
+  SAY HURT @16 //@15
+  SAY DAMAGE @15 //@16
   SAY AREA_DUNGEON @17
   SAY AREA_FOREST @18
   SAY AREA_CITY @19
@@ -155,8 +183,56 @@ COPY ~dace/creatures/t#dace12.cre~ ~override/t#dace12.cre~
   SAY BATTLE_CRY4 @12
   SAY BATTLE_CRY5 @13
   SAY DYING @14
-  SAY HURT @15
-  SAY DAMAGE @16
+  SAY HURT @16 //@15
+  SAY DAMAGE @15 //@16
+  SAY AREA_DUNGEON @17
+  SAY AREA_FOREST @18
+  SAY AREA_CITY @19
+  SAY AREA_DAY @20
+  SAY AREA_NIGHT @21
+  SAY SELECT_COMMON1 @22
+  SAY SELECT_COMMON2 @23
+  SAY SELECT_COMMON3 @24
+  SAY SELECT_COMMON4 @25
+  SAY SELECT_COMMON5 @26
+  SAY SELECT_COMMON6 @27
+  SAY SELECT_ACTION1 @28
+  SAY SELECT_ACTION2 @29
+  SAY SELECT_ACTION3 @30
+  SAY SELECT_ACTION4 @31
+  SAY SELECT_ACTION5 @32
+  SAY SELECT_ACTION6 @33
+  SAY SELECT_ACTION7 @34
+  SAY SELECT_RARE1 @35
+  SAY SELECT_RARE2 @36
+  SAY CRITICAL_HIT @37
+  SAY CRITICAL_MISS @38
+  SAY TARGET_IMMUNE @39
+  SAY INVENTORY_FULL @40
+  SAY SPELL_DISRUPTED @41
+  SAY SET_A_TRAP @42
+  SAY HIDDEN_IN_SHADOWS @43
+  SAY PICKED_POCKET @44
+  WRITE_EVALUATED_ASCII DIALOG          ~t#dace~ #8
+  WRITE_EVALUATED_ASCII DEATHVAR        ~t#dace~ #32
+  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~t#dace~ #8
+
+COPY ~dace/creatures/t#dace14.cre~ ~override/t#dace14.cre~
+  SAY NAME1 @2
+  SAY NAME2 @3
+  SAY BIO @4
+  SAY MORALE @5
+  SAY LEADER @6
+  SAY TIRED @7
+  SAY BORED @8
+  SAY BATTLE_CRY1 @9
+  SAY BATTLE_CRY2 @10
+  SAY BATTLE_CRY3 @11
+  SAY BATTLE_CRY4 @12
+  SAY BATTLE_CRY5 @13
+  SAY DYING @14
+  SAY HURT @16 //@15
+  SAY DAMAGE @15 //@16
   SAY AREA_DUNGEON @17
   SAY AREA_FOREST @18
   SAY AREA_CITY @19
@@ -204,8 +280,8 @@ COPY ~dace/creatures/t#dace14.cre~ ~override/t#dace25.cre~
   SAY BATTLE_CRY4 @12
   SAY BATTLE_CRY5 @13
   SAY DYING @14
-  SAY HURT @15
-  SAY DAMAGE @16
+  SAY HURT @16 //@15
+  SAY DAMAGE @15 //@16
   SAY AREA_DUNGEON @17
   SAY AREA_FOREST @18
   SAY AREA_CITY @19
@@ -234,9 +310,9 @@ COPY ~dace/creatures/t#dace14.cre~ ~override/t#dace25.cre~
   SAY SET_A_TRAP @42
   SAY HIDDEN_IN_SHADOWS @43
   SAY PICKED_POCKET @44
-  WRITE_EVALUATED_ASCII DIALOG          ~t#dace~ #8
+  WRITE_EVALUATED_ASCII DIALOG          ~t#dac25~ #8
   WRITE_EVALUATED_ASCII DEATHVAR        ~t#dace~ #32
-  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~t#dace~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~t#dac25~ #8
   
 
 // Vampire!Dace
@@ -333,8 +409,9 @@ APPEND ~pdialog.2da~ ~T#DACE T#DACEP T#DACEJ T#DACED T#DAC25P T#DAC25J T#DAC25D 
   
 // Alternate portrait by Ilmatar
 BEGIN @64
+REQUIRE_COMPONENT ~dace.tp2~ 0 @66
 
-ACTION_IF GAME_IS BG2EE BEGIN
+ACTION_IF GAME_IS ~bg2ee eet~ BEGIN
   COPY ~dace/images/ilmatar_ee~ ~override~
 END ELSE BEGIN
   COPY ~dace/images/ilmatar~ ~override~

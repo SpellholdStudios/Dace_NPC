@@ -85,7 +85,7 @@ END
 
 IF ~~ T#DJ1_12
   SAY @31
-  IF ~~ DO ~SetGlobal("T#DaceFromBeginning","GLOBAL",1) JoinParty() SetGlobal("T#DaceJoined","GLOBAL",1)~ EXIT
+  IF ~~ DO ~SetGlobal("T#DaceFromBeginning","GLOBAL",1) SetGlobal("T#DaceJoined","GLOBAL",1) JoinParty()~ EXIT
 END
 
 
@@ -110,12 +110,12 @@ END
 
 IF ~~ T#DJ2_4
   SAY @38
-  IF ~~ DO ~JoinParty() SetGlobal("T#DaceJoined","GLOBAL",1)~ EXIT
+  IF ~~ DO ~SetGlobal("T#DaceJoined","GLOBAL",1) JoinParty()~ EXIT
 END
 
 
 // Dcks in chapter six
-IF ~Global("Chapter","GLOBAL",6) AreaCheck("AR0300")~ T#DJ3_1
+IF ~Global("Chapter","GLOBAL",%bg2_chapter_6%) AreaCheck("AR0300")~ T#DJ3_1
   SAY @39
   ++ @40 + T#DJ3_5
   ++ @41 + T#DJ3_2
@@ -135,10 +135,10 @@ END
 
 IF ~~ T#DJ3_4
   SAY @46
-  IF ~~ DO ~JoinParty() SetGlobal("T#DaceJoined","GLOBAL",1)~ EXIT
+  IF ~~ DO ~SetGlobal("T#DaceJoined","GLOBAL",1) JoinParty()~ EXIT
 END
 
 IF ~~ T#DJ3_5
   SAY @47
-  IF ~~ DO ~JoinParty() SetGlobal("T#DaceJoined","GLOBAL",1)~ EXIT
+  IF ~~ DO ~SetGlobal("T#DaceJoined","GLOBAL",1) JoinParty()~ EXIT
 END

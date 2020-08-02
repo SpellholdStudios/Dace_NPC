@@ -11,8 +11,7 @@
 
 
 **Author:** Tess Grey  
-**Mod Website:** <a href="http://www.shsforums.net/forum/572-dace/">Spellhold Studios</a><br /><br />
-**Mod Forum:** <a href="http://www.shsforums.net/files/file/1038-dace/">Dace NPC</a><br /><br />
+**Mod Forum:** <a href="http://www.shsforums.net/forum/572-dace/">Dace NPC</a><br /><br />
 
 
 <div align="center">

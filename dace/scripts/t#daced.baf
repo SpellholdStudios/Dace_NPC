@@ -1,0 +1,43 @@
+// ---------------------------------------------
+// Dace SoA Dream Script
+// ---------------------------------------------
+
+// Intermediate 6
+IF
+    InParty(Myself)
+    RealGlobalTimerExpired("T#DaceIntTalksTimer","GLOBAL")
+    !Global("T#DaceJackass","GLOBAL",1)
+    Global("T#DaceFromBeginning","GLOBAL",1)
+    Global("T#DaceIntTalks","GLOBAL",10)
+    !Global("AerieRomanceActive","GLOBAL",2)
+    !Global("AnomenRomanceActive","GLOBAL",2)
+    !Global("JaheiraRomanceActive","GLOBAL",2)
+    !Global("ViconiaRomanceActive","GLOBAL",2)
+    !Dead("T#Dace")
+THEN
+  RESPONSE #100
+    PlaySong(0)
+    PlaySound("t#d_lone")
+    IncrementGlobal("T#DaceIntTalks","GLOBAL",1)
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+// Sleeping with Edwin
+IF
+    CombatCounter(0)
+    !See([ENEMY])
+    InParty("Edwin")
+    Range("Edwin",30)
+    !Dead("T#Dace")
+    !Dead("Edwin")
+    !StateCheck("Edwin",CD_STATE_NOTVALID)
+    !StateCheck("Dace",CD_STATE_NOTVALID)
+    Gender("Edwin",MALE)
+    Global("T#DaceEdwin","GLOBAL",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceEdwin","GLOBAL",1)
+    MoveToObject("Edwin")
+    Interact("Edwin")
+END

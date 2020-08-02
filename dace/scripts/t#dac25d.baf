@@ -1,0 +1,20 @@
+// ---------------------------------------------
+// Dace ToB Dream Script
+// ---------------------------------------------
+
+// ---------------------------------------------
+// Dace floating romance talks
+// ---------------------------------------------
+// "Check"
+IF
+    InParty(Myself)
+    Global("T#DaceToBCheckTalk","GLOBAL",0)
+    Global("T#DaceRomanceActive","GLOBAL",2)
+THEN
+  RESPONSE #100
+    PlaySong(0)
+    PlaySound("t#d_fall")
+    SetGlobal("T#DaceToBCheckTalk","GLOBAL",1)
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END

@@ -1,0 +1,11 @@
+IF
+    True()
+THEN
+  RESPONSE #100
+    CutSceneId(Player1)
+    CreateCreature("T#DAC25",[440.1000],5)
+    SetGlobal("T#DaceToBExists","GLOBAL",1)
+    ActionOverride("T#Dace",MoveToPointNoInterrupt([830.800]))
+    StartDialogueNoSet(Player1)
+    EndCutSceneMode()
+END

@@ -1,0 +1,22 @@
+// --------------------------------------------
+// Dace SoA - AR2000
+// --------------------------------------------
+// Spawn Dace
+IF
+    GlobalGT("chapter","GLOBAL",2)
+    GlobalLT("chapter","GLOBAL",6)
+    Global("T#DaceExistsTrademeet","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceExistsTrademeet","GLOBAL",1)
+    CreateCreature("t#dace12",[3282.2191],5)
+END
+
+IF
+     Global("T#DaceExistsTrademeet","GLOBAL",1)
+     Global("geniesgone","GLOBAL",1)
+     !Dead("T#Dace")
+THEN
+  RESPONSE #100
+     ActionOverride("T#Dace",DestroySelf())
+END

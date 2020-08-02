@@ -1,0 +1,12 @@
+// --------------------------------------------
+// Dace SoA - AR0300
+// --------------------------------------------
+// Spawn Dace
+IF
+    Global("chapter","GLOBAL",6)
+    Global("T#DaceExistsDocks","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceExistsDocks","GLOBAL",1)
+    CreateCreature("t#dace14",[1830.2761],8)
+END

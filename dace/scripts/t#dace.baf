@@ -1,0 +1,1115 @@
+// ---------------------------------------------
+// Dace SoA Script
+// ---------------------------------------------
+// Initial meeting
+IF
+    See(Player1)
+    Range(Player1,15)
+    NumTimesTalkedTo(0)
+    Global("T#DaceIntro","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceIntro","GLOBAL",1)
+    MoveToObject(Player1)
+    StartDialogueNoSet(Player1)
+END
+
+
+// ---------------------------------------------
+// "Sussing out" Dialogues
+// ---------------------------------------------
+IF
+    InParty(Myself)
+    Global("T#DaceSussTalks","GLOBAL",0)
+    !Dead("T#Dace")
+THEN
+  RESPONSE #100
+    RealSetGlobalTimer("T#DaceSussTalksTimer","GLOBAL",900)
+    SetGlobal("T#DaceSussTalks","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    !Global("T#DaceJackass","GLOBAL",1)
+    RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL")
+    CombatCounter(0)
+    !See([ENEMY])
+    OR(13)
+      Global("T#DaceSussTalks","GLOBAL",1)
+      Global("T#DaceSussTalks","GLOBAL",3)
+      Global("T#DaceSussTalks","GLOBAL",5)
+      Global("T#DaceSussTalks","GLOBAL",7)
+      Global("T#DaceSussTalks","GLOBAL",9)
+      Global("T#DaceSussTalks","GLOBAL",11)
+      Global("T#DaceSussTalks","GLOBAL",13)
+      Global("T#DaceSussTalks","GLOBAL",15)
+      Global("T#DaceSussTalks","GLOBAL",17)
+      Global("T#DaceSussTalks","GLOBAL",19)
+      Global("T#DaceSussTalks","GLOBAL",21)
+      Global("T#DaceSussTalks","GLOBAL",23)
+      Global("T#DaceSussTalks","GLOBAL",25)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    RealGlobalTimerExpired("T#DaceSussTalksTimer","GLOBAL")
+    !Global("T#DaceJackass","GLOBAL",1)
+    OR(12)
+      Global("T#DaceSussTalks","GLOBAL",2)
+      Global("T#DaceSussTalks","GLOBAL",4)
+      Global("T#DaceSussTalks","GLOBAL",6)
+      Global("T#DaceSussTalks","GLOBAL",8)
+      Global("T#DaceSussTalks","GLOBAL",10)
+      Global("T#DaceSussTalks","GLOBAL",12)
+      Global("T#DaceSussTalks","GLOBAL",14)
+      Global("T#DaceSussTalks","GLOBAL",16)
+      Global("T#DaceSussTalks","GLOBAL",18)
+      Global("T#DaceSussTalks","GLOBAL",20)
+      Global("T#DaceSussTalks","GLOBAL",22)
+      Global("T#DaceSussTalks","GLOBAL",24)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceSussTalks","GLOBAL",1)
+END
+
+
+// ---------------------------------------------
+// "Intermediate" Dialogues
+// ---------------------------------------------
+IF
+    InParty(Myself)
+    Global("T#DaceSussTalks","GLOBAL",26)
+    Global("T#DaceIntTalks","GLOBAL",0)
+    !Dead("T#Dace")
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceIntTalks","GLOBAL",1)
+    RealSetGlobalTimer("T#DaceIntTalksTimer","GLOBAL",2700)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    !Global("T#DaceJackass","GLOBAL",1)
+    RealGlobalTimerExpired("T#DaceIntTalksTimer","GLOBAL")
+    CombatCounter(0)
+    !See([ENEMY])
+    OR(5)
+      Global("T#DaceIntTalks","GLOBAL",1)
+      Global("T#DaceIntTalks","GLOBAL",3)
+      Global("T#DaceIntTalks","GLOBAL",5)
+      Global("T#DaceIntTalks","GLOBAL",7)
+      Global("T#DaceIntTalks","GLOBAL",9)
+THEN
+  RESPONSE #100
+    PlaySong(0)
+    PlaySound("t#d_lone")
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)           
+    !Dead("T#Dace")
+    RealGlobalTimerExpired("T#DaceIntTalksTimer","GLOBAL")
+    !Global("T#DaceJackass","GLOBAL",1)
+    OR(4)
+      Global("T#DaceIntTalks","GLOBAL",2)
+      Global("T#DaceIntTalks","GLOBAL",4)
+      Global("T#DaceIntTalks","GLOBAL",6)
+      Global("T#DaceIntTalks","GLOBAL",8)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceIntTalks","GLOBAL",1)
+END
+
+
+// Last "Intermediate" talk (morning after)
+IF
+    InParty(Myself)
+    PartyRested()
+    !Dead("T#Dace")
+    Global("T#DaceIntTalks","GLOBAL",12)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceIntTalks","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    !Global("T#DaceJackass","GLOBAL",1)
+    CombatCounter(0)
+    !See([ENEMY])
+    !Global("T#DaceFriendshipActive","GLOBAL",1)
+    Global("T#DaceIntTalks","GLOBAL",13)
+THEN
+  RESPONSE #100
+    PlaySong(0)
+    PlaySound("t#d_lone")
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+
+// If "Intermediate" talks are done and Dace was NOT in the party from the beginning
+IF
+    InParty(Myself)
+    !Dead("T#Dace")
+    !Global("T#DaceFromBeginning","GLOBAL",1)
+    Global("T#DaceIntTalks","GLOBAL",22)
+    Global("T#DaceFriendshipActive","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceFriendshipActive","GLOBAL",1)
+END
+
+
+IF // If there's a romance already happening with the PC
+    InParty(Myself)
+    !Dead("T#Dace")
+    Global("T#DaceIntTalks","GLOBAL",22)
+    Global("T#DaceFriendshipActive","GLOBAL",0)
+    OR(4)
+      Global("AerieRomanceActive","GLOBAL",2)
+      Global("AnomenRomanceActive","GLOBAL",2)
+      Global("JaheiraRomanceActive","GLOBAL",2)
+      Global("ViconiaRomanceActive","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceFriendshipActive","GLOBAL",1)
+END
+
+
+
+// ---------------------------------------------
+// "Romance" Dialogues
+// ---------------------------------------------
+IF
+    InParty(Myself)
+    Global("T#DaceRomanceActive","GLOBAL",2)
+    Global("T#DaceRomanceTalks","GLOBAL",0)
+    !Dead("T#Dace")
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceRomanceTalks","GLOBAL",1)
+    RealSetGlobalTimer("T#DaceRomanceTalksTimer","GLOBAL",2700)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    !Global("T#DaceJackass","GLOBAL",1)
+    Global("T#DaceRomanceActive","GLOBAL",2)
+    RealGlobalTimerExpired("T#DaceRomanceTalksTimer","GLOBAL")
+    CombatCounter(0)
+    !See([ENEMY])
+    OR(13)
+      Global("T#DaceRomanceTalks","GLOBAL",1)
+      Global("T#DaceRomanceTalks","GLOBAL",3)
+      Global("T#DaceRomanceTalks","GLOBAL",5)
+      Global("T#DaceRomanceTalks","GLOBAL",7)
+      Global("T#DaceRomanceTalks","GLOBAL",9)
+      Global("T#DaceRomanceTalks","GLOBAL",11)
+      Global("T#DaceRomanceTalks","GLOBAL",13)
+      Global("T#DaceRomanceTalks","GLOBAL",15)
+      Global("T#DaceRomanceTalks","GLOBAL",17)
+      Global("T#DaceRomanceTalks","GLOBAL",19)
+      Global("T#DaceRomanceTalks","GLOBAL",21)
+      Global("T#DaceRomanceTalks","GLOBAL",23)
+      Global("T#DaceRomanceTalks","GLOBAL",25)
+THEN
+  RESPONSE #100
+    PlaySong(0)
+    PlaySound("t#d_fall")
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    RealGlobalTimerExpired("T#DaceRomanceTalksTimer","GLOBAL")
+    !Global("T#DaceJackass","GLOBAL",1)
+    Global("T#DaceRomanceActive","GLOBAL",2)
+    OR(12)
+      Global("T#DaceRomanceTalks","GLOBAL",2)
+      Global("T#DaceRomanceTalks","GLOBAL",4)
+      Global("T#DaceRomanceTalks","GLOBAL",6)
+      Global("T#DaceRomanceTalks","GLOBAL",8)
+      Global("T#DaceRomanceTalks","GLOBAL",10)
+      Global("T#DaceRomanceTalks","GLOBAL",12)
+      Global("T#DaceRomanceTalks","GLOBAL",14)
+      Global("T#DaceRomanceTalks","GLOBAL",16)
+      Global("T#DaceRomanceTalks","GLOBAL",18)
+      Global("T#DaceRomanceTalks","GLOBAL",20)
+      Global("T#DaceRomanceTalks","GLOBAL",22)
+      Global("T#DaceRomanceTalks","GLOBAL",24)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceRomanceTalks","GLOBAL",1)
+END
+
+
+// ---------------------------------------------
+// "Friendship" Dialogues
+// ---------------------------------------------
+IF
+    InParty(Myself)
+    !Dead("T#Dace")
+    Global("T#DaceFriendshipActive","GLOBAL",1)
+    Global("T#DaceFriendTalks","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceFriendTalks","GLOBAL",1)
+    RealSetGlobalTimer("T#DaceFriendTalksTimer","GLOBAL",2700)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    !Global("T#DaceJackass","GLOBAL",1)
+    Global("T#DaceFriendshipActive","GLOBAL",1)
+    RealGlobalTimerExpired("T#DaceFriendTalksTimer","GLOBAL")
+    CombatCounter(0)
+    !See([ENEMY])
+    OR(12)
+      Global("T#DaceFriendTalks","GLOBAL",1)
+      Global("T#DaceFriendTalks","GLOBAL",3)
+      Global("T#DaceFriendTalks","GLOBAL",5)
+      Global("T#DaceFriendTalks","GLOBAL",7)
+      Global("T#DaceFriendTalks","GLOBAL",9)
+      Global("T#DaceFriendTalks","GLOBAL",11)
+      Global("T#DaceFriendTalks","GLOBAL",13)
+      Global("T#DaceFriendTalks","GLOBAL",15)
+      Global("T#DaceFriendTalks","GLOBAL",17)
+      Global("T#DaceFriendTalks","GLOBAL",19)
+      Global("T#DaceFriendTalks","GLOBAL",21)
+      Global("T#DaceFriendTalks","GLOBAL",23)
+THEN
+  RESPONSE #100    
+    PlaySong(0)
+    PlaySound("t#d_lone")
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    RealGlobalTimerExpired("T#DaceFriendTalksTimer","GLOBAL")
+    !Global("T#DaceJackass","GLOBAL",1)
+    Global("T#DaceFriendshipActive","GLOBAL",1)
+    OR(11)
+      Global("T#DaceFriendTalks","GLOBAL",2)
+      Global("T#DaceFriendTalks","GLOBAL",4)
+      Global("T#DaceFriendTalks","GLOBAL",6)
+      Global("T#DaceFriendTalks","GLOBAL",8)
+      Global("T#DaceFriendTalks","GLOBAL",10)
+      Global("T#DaceFriendTalks","GLOBAL",12)
+      Global("T#DaceFriendTalks","GLOBAL",14)
+      Global("T#DaceFriendTalks","GLOBAL",16)
+      Global("T#DaceFriendTalks","GLOBAL",18)
+      Global("T#DaceFriendTalks","GLOBAL",20)
+      Global("T#DaceFriendTalks","GLOBAL",22)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceFriendTalks","GLOBAL",1)
+END
+
+
+
+// ---------------------------------------------
+// Dace Initiated PC Flirts
+// ---------------------------------------------
+IF
+    Global("T#DaceFlirtsCheck","GLOBAL",0)
+    InParty(Myself)
+    !Dead("T#Dace")
+    OR(2)
+      GlobalGT("T#DaceIntTalks","GLOBAL",0)
+      Global("T#DaceRomanceActive","GLOBAL",2)
+    !Global("T#DaceFriendshipActive","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceFlirtsCheck","GLOBAL",1)
+    RealSetGlobalTimer("T#DaceFlirtTimer","GLOBAL",1800)
+END
+
+IF
+    RealGlobalTimerExpired("T#DaceFlirtTimer","GLOBAL")
+    InParty(Myself)
+    !Dead("T#Dace")
+    Global("T#DaceTimeForFlirt","GLOBAL",0)
+    !Global("T#DaceFriendshipActive","GLOBAL",1)
+    OR(2)
+      GlobalGT("T#DaceIntTalks","GLOBAL",0)
+      Global("T#DaceRomanceActive","GLOBAL",2)
+    OR(2)
+        GlobalLT("Chapter","GLOBAL",4)
+        Global("Chapter","GLOBAL",6)
+    See(Player1)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !See([ENEMY])
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceTimeForFlirt","GLOBAL",1)
+END
+
+IF
+    Global("T#DaceTimeForFlirt","GLOBAL",1)
+    InParty(Myself)
+    !Dead("T#Dace")
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !Global("T#DaceFriendshipActive","GLOBAL",1)
+THEN
+  RESPONSE #100
+    StartDialogueNoSet(Player1)
+END
+
+
+
+// ---------------------------------------------
+// Scenery comments
+// ---------------------------------------------
+// Hannah in Circus tent
+IF
+    InParty(Myself)
+    See(Player1)  
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    See("kftown01")
+    AreaCheck("AR0604")
+    Global("T#DaceJHan","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJHan","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJHan","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Spiders
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    See([0.0.SPIDER])
+    !Global("T#DaceJHan","GLOBAL",2)
+    Global("T#DaceJSpider","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJSpider","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJSpider","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Vamp/Shadow Thieves fight
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    See("vvhareis")
+    Range("vvhareis",40)
+    Global("T#DaceJVamps","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJVamps","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)    
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJVamps","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Umar Hills map
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("Acceptance","GLOBAL",1)
+    Global("T#DaceJDelon","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJDelon","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJDelon","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+
+// Slaver compound sewers
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    AreaCheck("AR0404")
+    Global("T#DaceJSewers","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJSewers","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJSewers","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Planar Sphere, demon heart area
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    AreaCheck("AR0414")
+    Global("T#DaceJSphere","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJSphere","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJSphere","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Pai'Na's spiders
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    AreaCheck("AR0804")
+    Global("T#DaceJSpid2","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJSpid2","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJSpid2","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Lich in Crooked Cane
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    AreaCheck("AR0082")
+    Dead("grvlch01")
+    Global("T#DaceJCLich","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJCLich","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJCLich","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Planar Prison
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    AreaCheck("AR0516")
+    Global("T#DaceJPlPrison","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJPlPrison","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJPlPrison","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Temple district Sewers
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    AreaCheck("AR0701")
+    Global("T#DaceJTSewers","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJTSewers","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJTSewers","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Dace doesn't much like the sea, it seems
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    AreaCheck("AR1600")
+    Global("T#DaceJShip","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJShip","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJShip","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Irenicus' room in Spellhold
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    AreaCheck("AR1515")
+    See("golsto01")
+    Range("golsto01",10)
+    Global("T#DaceJSpellIren","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJSpellIren","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJSpellIren","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// In Underdark
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    AreaCheck("AR2100")
+    Global("T#DaceUnderdark","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceUnderdark","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceUnderdark","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Slept with Phaere
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("PhaereInnuendo","GLOBAL",2)
+    Global("T#DaceJLuckyBastard","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJLuckyBastard","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJLuckyBastard","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+    
+    
+// After killing Deirex
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Dead("Jarlich")
+    Global("T#DaceJDeirex","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJDeirex","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJDeirex","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Enslaved by Illithid
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    AreaCheck("AR2400")
+    Global("T#DaceJIllithid","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJIllithid","GLOBAL",1)
+    RealSetGlobalTimer("T#DaceJIllithidTimer","GLOBAL",90)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    RealGlobalTimerExpired("T#DaceJIllithidTimer","GLOBAL")
+    Global("T#DaceJIllithid","GLOBAL",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJIllithid","GLOBAL",1)
+    Dialogue(Player1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJIllithid","GLOBAL",2)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Demogorgon statue, Kua-Toa area
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    See("Demogorgon")
+    AreaCheck("AR2402")
+    Global("T#DaceJDemo","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJDemo","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJDemo","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+
+// Balor/Elf cutscene in Suldannessellar
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    AreaCheck("AR2808")
+    Dead("sudemon")
+    Dead("sumoon")
+    Global("MoonBladeFight","GLOBAL",1)
+    Global("T#DaceJMoonBlade","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJMoonBlade","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJMoonBlade","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Watchers Keep: Lich
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    AreaCheck("AR3027")
+    Global("T#DaceJWLich","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJWLich","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJWLich","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Watchers Keep: Mind flayers
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    AreaCheck("AR3021")
+    Global("T#DaceJWFlay","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJWFlay","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJWFlay","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Khittix
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    See("spidfgsu")
+    Range("spidfgsu",30)
+    Global("T#DaceJKhittix","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceJKhittix","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("T#DaceJKhittix","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !Dead("T#Dace")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Dead("spidfgsu")
+    Global("T#DaceJKhittix","GLOBAL",2)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceJKhittix","GLOBAL",0)
+END
+
+
+// ---------------------------------------------
+// Scripted banters
+// ---------------------------------------------
+
+// Edwin (morning after)
+IF
+    CombatCounter(0)
+    !See([ENEMY])
+    InParty("Edwin")
+    !Dead("T#Dace")
+    Range("Edwin",30)
+    !StateCheck("Edwin",CD_STATE_NOTVALID)
+    !StateCheck("Dace",CD_STATE_NOTVALID)
+    PartyRested()
+    Global("T#DaceEdwin","GLOBAL",3)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceEdwin","GLOBAL",1)
+END
+
+IF
+    CombatCounter(0)
+    !See([ENEMY])
+    InParty("Edwin")
+    Range("Edwin",30)
+    !Dead("T#Dace")
+    !StateCheck("Edwin",CD_STATE_NOTVALID)
+    !StateCheck("Dace",CD_STATE_NOTVALID)
+    Global("T#DaceEdwin","GLOBAL",4)
+THEN
+  RESPONSE #100
+    MoveToObject("Edwin")
+    Interact("Edwin")
+END
+
+
+// Nalia
+IF
+    CombatCounter(0)
+    !See([ENEMY])
+    InParty("Nalia")
+    Range("Nalia",30)
+    !Dead("T#Dace")
+    !StateCheck("Nalia",CD_STATE_NOTVALID)
+    !StateCheck("Dace",CD_STATE_NOTVALID)
+    Global("NaliaWentToFuneral","GLOBAL",1)
+    Global("T#DaceNalia","GLOBAL",0)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceNalia","GLOBAL",1)
+    RealSetGlobalTimer("T#DaceNaliaTimer","GLOBAL",900)
+END
+
+IF
+    CombatCounter(0)
+    !See([ENEMY])
+    InParty("Nalia")
+    Range("Nalia",30)
+    !Dead("T#Dace")
+    !StateCheck("Nalia",CD_STATE_NOTVALID)
+    !StateCheck("Dace",CD_STATE_NOTVALID)
+    Global("NaliaWentToFuneral","GLOBAL",1)
+    RealGlobalTimerExpired("T#DaceNaliaTimer","GLOBAL")
+    Global("T#DaceNalia","GLOBAL",1)
+THEN
+  RESPONSE #100
+    IncrementGlobal("T#DaceNalia","GLOBAL",1)
+END
+
+IF
+    CombatCounter(0)
+    !See([ENEMY])
+    InParty("Nalia")
+    Range("Nalia",30)
+    !Dead("T#Dace")
+    !StateCheck("Nalia",CD_STATE_NOTVALID)
+    !StateCheck("Dace",CD_STATE_NOTVALID)
+    Global("T#DaceNalia","GLOBAL",2)
+THEN
+  RESPONSE #100
+    MoveToObject("Nalia")
+    Interact("Nalia")
+END

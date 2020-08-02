@@ -1,0 +1,840 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+  <head>
+
+    <style type="text/css">
+
+    /*<![CDATA[*/
+
+    <!-- 
+
+      body {
+
+        margin: 0;
+
+        padding: 0;
+
+        cursor: default;
+
+        text-align: center;
+
+        color: #000;
+
+        background: #e3e3db url('http://spellholdstudios.net/images/sh_bg_main.jpg');
+
+      }
+
+      
+
+      #wrap {
+
+        text-align: left;
+
+        margin: 0 auto;
+
+        margin-top: 20px;
+
+        width: 88%;
+
+        font-family: Verdana, Tahoma, Arial, sans-serif;
+
+        font-size: 12px;
+
+        color: #333;
+
+      }
+
+      
+
+      #header {
+
+        text-align: center;
+
+        background: #e5e5e5;
+
+        border: 1px solid #781808;
+
+        border-top: 5px solid #781808;
+
+        border-bottom: 5px solid #781808;
+
+        padding: 5px 0 13px 0;
+
+      }
+
+      
+
+      #header .about {
+
+        margin: 7px 0 0 0;
+
+        padding: 0;
+
+        font-style: italic;
+
+        color: #555;
+
+      }
+
+      
+
+      #header .menu {
+
+        font-weight: bold;
+
+        margin: 0;
+
+        color: #999;
+
+      }
+
+      
+
+      #header .menu a:link,
+
+      #header .menu a:visited {
+
+        color: #333;
+
+      }
+
+      
+
+      #maindiv {
+
+        margin: 0 auto;
+
+        margin-top: -20px;
+
+        width: 80%;
+
+      }
+
+      
+
+      #maindiv .content {
+
+        counter-increment: kman;
+
+        counter-reset: h2;
+
+        background-color: #e8e8e6;
+
+        padding: 0 0 25px 0;
+
+        margin: 50px auto;
+
+        border-width: 1px 1px 4px 10px;
+
+        border-style: solid;
+
+        border-color: #781808;
+
+        position: relative;
+
+        display: block;
+
+      }
+
+      
+
+      #maindiv .content::before {
+
+        content: counter(kman, lower-roman);
+
+        font-size: 100%;
+
+        font-weight: bold;
+
+        text-align: center;
+
+        color: #eee;
+
+        background-color: #781808;
+
+        width: 35px;
+
+        position: absolute;
+
+        top: 0px;
+
+        left: 0px;
+
+        display: block;
+
+      }
+
+      
+
+      h2 {
+
+        display: block;
+
+        font-family: Verdana, Trebuchet MS, Arial, serif;
+
+        text-align: left;
+
+        text-indent: 30px;
+
+        padding: 0px;
+
+        margin: 20px 0 0 0;
+
+        border-bottom: dotted 2px #d0d0d0;
+
+        border-top: dotted 2px #d0d0d0;
+
+        background: #deded9;
+
+        font-size: 160%;
+
+      }
+
+      
+
+      h2::first-letter {
+
+        color: #781808;
+
+        background-color: transparent;
+
+      }
+
+      
+
+      #maindiv p {
+
+        font-size: 100%;
+
+        font-style: normal;
+
+        line-height: 150%;
+
+        padding: 0px;
+
+        margin: 10px auto;
+
+        width: 90%;
+
+        display: block;
+
+      }
+
+      
+
+      #maindiv address a:link,
+
+      #maindiv address a:visited {
+
+        font-weight: bold;
+
+        text-decoration: underline;
+
+        background-color: transparent;
+
+        color: #eaeaea !important;
+
+        padding-right: 5px;
+
+        padding-left: 6px;
+
+      }
+
+      
+
+      #maindiv address a:focus,
+
+      #maindiv address a:hover {
+
+        text-decoration: none;
+
+        color: #F1F1F1;
+
+        border: 0;
+
+      }
+
+      
+
+      #maindiv address a:active {
+
+        color: #fff;
+
+        text-decoration: line-through;
+
+        border: none;
+
+      }
+
+      
+
+      #maindiv address {
+
+        font-size: 95%;
+
+        font-style: normal;
+
+        font-weight: bold;
+
+        text-decoration: none;
+
+        color: #BBB;
+
+        background-color: #781808;
+
+        padding: 3px 0px 0px;
+
+        margin: 0px;
+
+        width: 100%;
+
+        position: absolute;
+
+        bottom: -1px;
+
+        left: 0px;
+
+        display: block;
+
+        text-align: right;
+
+      }
+
+      
+
+      #maindiv .important {
+
+        font-size: 95%;
+
+        font-family: Verdana;
+
+        text-align: left;
+
+        background-color: #F1F1F1;
+
+        border-top: solid 1px #aaa;
+
+        border-bottom: solid 1px #aaa;
+
+        border-left: solid 6px #aaa;
+
+        border-right: solid 6px #aaa;
+
+        padding: 10px;
+
+        margin: 20px auto;
+
+        width: 80%;
+
+        line-height: 160%;
+
+      }
+
+      
+
+      #maindiv .important::before {
+
+        display: none;
+
+      }
+
+      
+
+      #maindiv .important p {
+
+        font-size: 100%;
+
+        text-indent: 0px;
+
+        margin: 5px 0 10px 0;
+
+      }
+
+      
+
+      #maindiv ul {
+
+        margin: -10px 0 0 30px;
+
+        *margin-left: 65px;
+
+      }
+
+      
+
+      #maindiv ol {
+
+        margin: -10px 0 0 35px;
+
+        *margin-left: 70px;
+
+      }
+
+      
+
+      #maindiv .important ul {
+
+        margin: -10px 0 0 15px;
+
+      }
+
+      
+
+      #maindiv .important ol {
+
+        margin: -10px 0 0 20px;
+
+      }
+
+      
+
+      #maindiv ul li {
+
+        list-style-type: square;
+
+        line-height: 150%;
+
+      }
+
+      
+
+      #maindiv ol li {
+
+        line-height: 150%;
+
+      }
+
+      
+
+      .t1 {
+
+        font-weight: bold;
+
+        width: 26%;
+
+        text-align: right;
+
+        clear: right;
+
+        float: left;
+
+        *float: none;
+
+        *margin-left: 65px;
+
+        line-height: 22px;
+
+      }
+
+      
+
+      .t2 {
+
+        text-align: left;
+
+        width: 73%;
+
+        float: right;
+
+        *float: none;
+
+        line-height: 22px;
+
+      }
+
+      
+
+      hr {
+
+        margin: 10px 0 10px 0;
+
+        padding: 0;
+
+        height: 1px;
+
+        border: 0;
+
+        color: #aaa;
+
+        background-color: #aaa;
+
+      }
+
+      
+
+      hr.floatfix {
+
+        clear: both;
+
+        color: #e8e8e6;
+
+        background-color: #e8e8e6;
+
+        *margin: 0;
+
+        *padding: 0;
+
+      }
+
+      
+
+      h1 {
+
+        font-size: 225%;
+
+        color: #444;
+
+        padding: 5px 0 5px 0;
+
+        margin: 0;
+
+        width: 100%;
+
+      }
+
+      
+
+      h3,
+
+      h4,
+
+      h5 {
+
+        margin: 10px 40px 10px 40px;
+
+        padding: 0;
+
+      }
+
+      
+
+      h3 {
+
+        font-size: 125%;
+
+        font-style: italic;
+
+      }
+
+      
+
+      h4 {
+
+        font-size: 125%;
+
+      }
+
+      
+
+      h5 {
+
+        font-size: 100%;
+
+      }
+
+      
+
+      h6 {
+
+        width: 100%;
+
+        margin: 10px 0 15px 0;
+
+        background-color: #ECECEC;
+
+        text-align: left;
+
+        text-indent: 30px;
+
+        font-size: 100%;
+
+        font-style: italic;
+
+        padding-top: 1px;
+
+        padding-bottom: 1px;
+
+        border-bottom: solid 1px #bbb;
+
+        border-top: solid 1px #bbb;
+
+      }
+
+      
+
+      a:link,
+
+      a:visited {
+
+        color: #781808;
+
+        font-weight: bold;
+
+        text-decoration: none;
+
+      }
+
+
+
+      a:hover,
+
+      a:active {
+
+        color: #222;
+
+        border-bottom: 1px solid black;
+
+      }
+
+
+
+    -->
+
+    /*]]>*/
+
+    </style>
+
+    <title>SPELLHOLD STUDIOS - Dace NPC</title>
+
+  </head>
+
+  <body>
+
+    <a name="top" id="top"></a>
+
+    <div id="wrap">
+
+      <div id="header">
+
+        <h1>Dace</h1>
+
+        <strong>A Spellhold Studios mod for Baldur's Gate 2: SoA & ToB</strong>
+
+        <hr />
+
+        <p class="about">
+
+          Author: Tess Grey  
+
+        </p>
+
+        <p class="about">
+
+          <a href="http://www.spellholdstudios.net/ie/dace">Mod Website</a> &#8226;
+
+          <a href="http://www.shsforums.net/forum/572-dace/">Mod Forum</a> &#8226;
+
+          Version: 1.2
+
+        </p>
+
+        <hr />
+
+        <p class="menu">
+
+          <a href="#intro">Introduction</a> &middot;
+
+          <a href="#installation">Installation</a> &middot;
+
+          <a href="#details">Details</a> &middot;
+
+          <a href="#credits">Credits</a> &middot;
+
+          <a href="#version">Version History</a>
+
+        </p>
+
+      </div>
+
+      <div id="maindiv">
+
+
+
+        <!-- ================== I n t r o d u c t i o n ================== -->
+
+        <a name="intro" id="intro"></a>
+
+        <div class="content">
+
+          <h2>Introduction</h2>
+
+<p>"I can see pretty easily what other people consider "good" an' "evil," and tell the difference, but I just don't understand why people get so concerned about doin' one or the other.  Strikes me that the wisest thing to do is whatever the wisest thing is for whatever situation you're in, not whatever you've decided is some overarchin' truth.  So I do "good" if I can profit and "evil" if I can profit and I won't get caught, and the hells can take the hindermost for all that I care which is which."</p>
+
+<p>Dace Linton is a Chaotic Neutral human female bounty hunter, about 33 years old. She will come over and speak to your PC if you leave or enter through the lower archway of Waukeen's Promenade, where you can find her standing on the steps.</p>  
+
+<p>Dace is a slight, wiry woman with short brown hair and clothing of a decidedly nondescript colour and practical cut. She speaks in an unremarkable contralto voice, clipping some words strangely and finishing others with a slight lilt. She has a somewhat crooked grin, as though some emotion other than amusement always manages to twist her smile slightly at the last minute. Dace seems very fond of the notion of practicality but doesn't always practice what she preaches, and occasionally shows a streak of whimsicality that borders on ridiculousness. Ninety percent of the time she is operating on Full-Sarcastic, Half-Obnoxious mode, but she is also capable of brief moments of unique insight and kindness.</p>  
+          
+          <address>
+
+            <span class="footer">Dace &gt; Introduction</span> &#8226;<a href="#top">BACK TO TOP</a>
+
+          </address>
+
+        </div>
+
+
+
+        <!-- ================== I n s t a l l a t i o n ================== -->
+
+        <a name="installation" id="installation"></a>
+
+        <div class="content">
+
+          <h2>Installation</h2>
+          <h5>PC</h5>
+
+          <p>The Dace NPC mod is a WeiDU mod, packaged in an extractable .RAR archive. Simply unrar <em>"dace_v1.1.rar"</em> (<a href="http://www.rarlabs.com">WinRAR</a>) into your Baldur's Gate II directory and run <em>"setup-dace.exe"</em>.
+          <p>To uninstall, run <em>"setup-dace.exe"</em> again and select the uninstall option.</p>
+          <h5>Compatibility and Installation Order</h5>
+
+          <p>Dace should be compatible with all WeiDU mods, however, we cannot test every single one. If you do encounter an error, please contact K'aeloree (kae@spellholdstudios.net) or alternatively post on the <a href="http://www.shsforums.net/forum/572-dace/">forums</a>.</p>
+          <p>Although it is not required for the Dace NPC to function properly, it is always a good idea install the latest version of the <a href="http://www.gibberlings3.net/bg2fixpack/">BG2 Fixpack</a>.</p>
+          <p>Throne of Bhaal must be installed to play Dace.</p>
+          <address>
+
+            <span class="footer">Dace &gt; Installation</span> <a href="#top">BACK TO TOP</a>
+
+          </address>
+
+        </div>
+        
+            <!-- ================== D e t a i l s ================== -->
+
+        <a name="details" id="details"></a>
+
+        <div class="content">
+
+          <h2>Details</h2>
+          
+                    <h5>Friendship and Romance</h5>
+<p>Dace can join up with, befriend, and romance any PC of any race, any gender, any alignment. In theory. There are variables that will help to determine whether she actually chooses to do these things or not. Some evil characters might be able to keep her around, while others won't be able to. It depends upon how the PC acts, not upon the PC's alignment. However, if you're roleplaying a Lawful Good PC with any sort of integrity or reasonability, Dace just isn't going to dig your character much.</p>
+
+<p>Dace talks a lot. If you like your NPC's quiet, if you play fast and don't have a banter accelerator installed, or if you get frustrated when an NPC seems to have something to say at nearly every turn, you might not be overly fond of Dace. She has a lot of banters with all the Bioware NPC's (at least five with each character and a rather longer "friendship" track with Viconia), a lot of interjections, and a very long set of tracks with the PC.</p>
+
+<p>Dace's "tracks" with the PC are a little different from some of the standards out there, so be careful if and when you're using variable-forcing to speed up her talks. She begins on one set of dialogue and will switch to another if the conditions are right, i.e. if she likes your PC. After a while, she'll branch into one of two dialog "tracks," which could be considered the "romance" and "friendship" tracks.</p>
+
+<p>Dace's "romance" portion sets in rather late in the game if you're playing normally. Your PC might very well be in or through a romance with another NPC at the point when Dace would conceivably switch to a romance track. If you are in a burgeoning romance (i.e. the romance variable with that NPC is set to "1" and the character is expressing interest in the PC) or in a committed romance (i.e. the romance variable with that NPC is set to " 2"), then Dace will not present the option of switching to her romance track. She'll see that you're either involved with or interested in someone else in the party and just won't even try--for various reasons, that's just the way she is. How you deal with this is up to you. You can play a different romance in the first part of your game and end it later if you want to romance Dace, but if you don't end it in time then you're out both romances. Yes, this means that Dace doesn't have "traditional" romance conflicts, and yes, this unfortunately means you might have to be a little bit of a jerk to Aerie/Kelsey/Sola/Viconia, etc.  So if you're trying to romance Dace, keep that in mind. Otherwise, she'll always default to the friendship track if you're reasonably nice to her and can put up with her.</p>
+
+<p>Dace's mood can swing pretty wildly, as can her responses to PC initiated flirts. These have a good number of various random outcomes, though, and they change several times during the game, so don't be afraid to keep bugging her. Her occasionally odd or crabby reactions do not mean doom for your possible romance.</p>
+          
+           <address> <span class="footer">Dace &gt; Details</span> <a href="#top">BACK TO TOP</a>
+
+          </address>
+
+        </div>
+
+
+
+        <!-- ================== C r e d i t s ================== -->
+
+        <a name="credits" id="credits"></a>
+
+        <div class="content">
+
+          <h2>Credits</h2>
+
+          <span class="t1">Writer:</span> <span class="t2">Tess Grey</span><br />
+
+          <span class="t1">Coder:</span> <span class="t2">K'aeloree</span><br />
+          
+          <span class="t1">Testers:</span> <span class="t2">Arconian03, Oracle</span><br />
+
+	  <span class="t1">Music:</span> <span class="t2"> "Lone Pine" by Gayle Ellett & Todd Montgomery, "Fall to Earth" by Jeremy Sherman. Both of these are royalty-free and available for purchase online in their entirety.</span><br />
+		  
+          <span class="t1">Audio mastering:</span> <span class="t2">-AkumA+</span><br />
+          
+         <span class="t1">With thanks to:</span> <span class="t2">Celissa, who was a brilliant editor and advisor, and K'aeloree, who did all of the hard work and really made Dace happen. Also, heartfelt thanks and/or sincere apologies to Trajan, Sophocles, Aeschylus, Euripides, and Ikkyu, all of whom were either quoted or totally ripped off in this mod. </span><br />
+			      <hr class="floatfix" />
+          <h5>Programs/tools used in creation:</h5><br />
+          <ul>
+            <li><a href="http://www.weidu.org">WeiDU</a>, by Westley Weimer/Valerio Bigiani (the bigg)</li>
+            <li><a href="http://www.idi.ntnu.no/~joh/ni/">Near Infinity</a>, by Jon Olav Hauglid</li>
+            <li><a href="http://www.shsforums.net/topic/31285-infinity-explorer-v085/">Infinity Explorer</a>, by Dmitry Jemerov/bigmoshi</li>
+            <li><a href="http://www.rarlab.com/">WinRAR</a>, by Eugene Roshal/Alexander Roshal</li>
+            <li><a href="http://iesdp.gibberlings3.net">IESDP</a>, maintained by igi</li>
+          </ul>
+          <h5>Copyright Notice:</h5>
+          <div class="important">
+            <p>The Dace NPC was developed by Tess Grey, based on material from the game Baldur's Gate II and its expansion.</p>
+
+            <p>All mod content is &copy; Tess Grey.</p>
+            <p>Baldur's Gate II: Shadows of Amn and Baldur's Gate II: Throne of Bhaal &copy; TSR, Inc. The BioWare Infinity Engine is &copy; BioWare Corp.</p>
+            <p>Please note that any and all redistribution and/or hosting of this mod is prohibited without permission from the author(s).</p>
+          </div>
+			
+          <address>
+
+            <span class="footer">Dace &gt; Credits</span> &#8226;<a href="#top">BACK TO TOP</a>
+
+          </address>
+
+        </div>
+
+
+
+        <!-- ================== V e r s i o n   H i s t o r y ================== -->
+
+        <a name="version" id="version"></a>
+
+        <div class="content">
+
+          <h2>Version history</h2>
+
+          <h6>3rd February 2013 - Version 1.2:</h6>
+
+          <ul>
+
+            <li>Fixed bug where if Dace was dead, she would still try to trigger talks, crashing the game</li>
+
+            <li>Re-fixed mage bug which was somehow not fixed at all</li>
+            
+            <li>Fixed ToB Watcher's Keep interjections</li>
+            
+            <li>Fixed Melissan interjection in ToB</li>
+            
+            <li>Fixed spiders-in-Sendai's-Lair interjection</li>
+            
+            <li>Fixed leaving party error</li>
+            
+            <li>Fixed Hellcat & Hellcat Sinclair so they actually do what they say they do</li>
+
+          </ul>
+
+          <h6>22nd January 2013 - Version 1.1:</h6>
+
+          <ul>
+
+            <li>Fixed bug with Spellcasters getting romance dialogue stutter in romance talk #6</li>
+
+            <li>Included the bigg's IDS fix fixes</li>
+
+          </ul>
+
+          <h6>3rd January 2013 - Version 1.0:</h6>
+
+          <ul>
+
+            <li>Initial release</li>
+
+          </ul>
+
+          <address>
+
+            <span class="footer">Dace &gt; Version History</span> &#8226;<a href="#top">BACK TO TOP</a>
+
+          </address>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+  </body>
+
+</html>

@@ -1,0 +1,21 @@
+// --------------------------------------------
+// Dace SoA - AR0700
+// --------------------------------------------
+// Spawn Dace
+IF
+    Global("T#DaceExists","GLOBAL",0)
+    LevelLT(Player1,440000)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceExists","GLOBAL",1)
+    CreateCreature("t#dace8",[2173.1528],5)
+END
+
+IF
+    Global("T#DaceExists","GLOBAL",0)
+    LevelGT(Player1,439999)
+THEN
+  RESPONSE #100
+    SetGlobal("T#DaceExists","GLOBAL",1)
+    CreateCreature("t#dace12",[2173.1528],5)
+END
